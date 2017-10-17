@@ -1,0 +1,272 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Изготовление пластиковых карт</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,800,400&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script>
+            function popup(id) {
+                $('fade').removeClass('hidden');
+                $(id).removeClass('hidden');
+            }
+        </script>
+        <script>
+            function AjaxFormRequest(result_id,formMain,url) {
+                $('#send_phone').prop('disabled', true);
+                $('#send_phone').html('Отправка');
+                jQuery.ajax({
+                    url:     url,
+                    type:     "POST",
+                    dataType: "html",
+                    data: jQuery("#"+formMain).serialize(),
+                    success: function(response) {
+                        //document.getElementById(result_id).innerHTML = response;
+                        setTimeout( function() {
+                            $('#get_result').removeClass('hidden');
+                        }, 1000 );
+                    },
+                    error: function(response) {
+                        //document.getElementById(result_id).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <header>
+            <wrapper>
+                <navigation class="primary">
+                    <a href="index.html">Главная</a>
+                    <a href="lp.html">Портфолио</a>
+                </navigation>
+                <logo></logo>
+                <navigation class="secondary">
+                    <a href="company/index.html">О нас</a>
+                    <a href="contacts/index.html">Контакты</a>
+                </navigation>
+            </wrapper>
+        </header>
+
+        <main>
+            <wrapper>
+                <line>
+                    <h2>Изготовление Пластиковых Карт</h2>
+                </line>
+                <hr>
+                <line>
+                    <div id="card_preview" class="column6">
+                        <card id="card_rotating" class="animated">
+                            <card id="card_back">
+                                <magnet class="hidden"></magnet>
+                                <signature class="hidden"></signature>
+                                <barcode></barcode>
+                                <text class="embossing hidden">1234 5678 1234 5678</text>
+                            </card>
+                            <card id="card_front">
+                                <!--card id="card_front_image"></card-->
+                                <!--card id="card_front_light"></card-->
+                                <text class="embossing">1234 5678 1234 5678</text>
+                                <text class="embossing embossed">1234 5678 1234 5678</text>
+                            </card>
+                        </card>
+                    </div>
+                    <div class="column6">
+                        <fieldset>
+                            <legend>Цвет пластика</legend>
+                            <input id="card_color_01" name="card_color" type="radio" value="white" checked>
+                            <label for="card_color_01" class="color">Белый</label>
+                            <input id="card_color_02" name="card_color" type="radio" value="gold">
+                            <label for="card_color_02" class="color">Золотой</label>
+                            <input id="card_color_03" name="card_color" type="radio" value="silver">
+                            <label for="card_color_03" class="color">Серебрянный</label>
+                            <input id="card_color_04" name="card_color" type="radio" value="pearl">
+                            <label for="card_color_04" class="color">Перламутровый</label>
+                            <input id="card_color_05" name="card_color" type="radio" value="transparent">
+                            <label for="card_color_05" class="color">Прозрачный</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Толщина карты</legend>
+                            <input id="card_thickness_01" name="card_thickness" type="radio" checked>
+                            <label for="card_thickness_01">0.76 мм</label>
+                            <input id="card_thickness_02" name="card_thickness" type="radio">
+                            <label for="card_thickness_02">0.45 мм</label>
+                        </fieldset>
+                    </div>
+                </line>
+                <line>
+                    <div class="column6">
+                        <fieldset class="variable">
+                            <h3>Переменная 1</h3>
+                            <input id="card_var_01" type="text" placeholder="Введите пример" value="1234 5678 1234 5678">
+                            <br>
+                            <label>Выдавливание текста:</label>
+                            <br>
+                            <input id="card_var_01_color_01" name="card_var_01_color" type="radio" value="no" checked>
+                            <label for="card_var_01_color_01" class="color">Нет</label>
+                            <input id="card_var_01_color_02" name="card_var_01_color" type="radio" value="gold">
+                            <label for="card_var_01_color_02" class="color">Золото</label>
+                            <input id="card_var_01_color_03" name="card_var_01_color" type="radio" value="silver">
+                            <label for="card_var_01_color_03" class="color">Серебро</label>
+                        </fieldset>
+                        <!--fieldset class="variable">
+                            <h3>Переменная 2</h3>
+                            <input id="card_var_02" type="text" placeholder="Введите пример текста для предпросмотра">
+                            <label>Выдавливание текста:</label>
+                            <br>
+                            <input id="card_var_02_color_01" name="card_var_02_color" type="radio" checked>
+                            <label for="card_var_02_color_01" class="color">Нет</label>
+                            <input id="card_var_02_color_02" name="card_var_02_color" type="radio">
+                            <label for="card_var_02_color_02" class="color">Золото</label>
+                            <input id="card_var_02_color_03" name="card_var_02_color" type="radio">
+                            <label for="card_var_02_color_03" class="color">Серебро</label>
+                        </fieldset-->
+                        <fieldset>
+                            <button class="add">Добавить переменную</button>
+                        </fieldset>
+                    </div>
+                    <div class="column6">
+                        <fieldset>
+                            <legend>Магнитная полоса</legend>
+                            <input id="card_magnet_01" name="card_magnet" type="radio" value="no" checked>
+                            <label for="card_magnet_01">Нет</label>
+                            <input id="card_magnet_02" name="card_magnet" type="radio" value="hico">
+                            <label for="card_magnet_02">HiCo</label>
+                            <input id="card_magnet_03" name="card_magnet" type="radio" value="loco">
+                            <label for="card_magnet_03">LoCo</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Прочее</legend>
+                            <input id="card_signature" type="checkbox">
+                            <label for="card_signature">Полоса для подписи</label>
+                        </fieldset>
+                    </div>
+                </line>
+                <line>
+                    <div class="total">
+                        <div class="box left">
+                            <label>Цена за карту:</label><br>
+                            <strong id="card_price">40 тг</strong>
+                        </div>
+                        <div class="box left">
+                            <label>Количество:</label><br>
+                            <input id="card_amount" type="number" min="1000" step="100" value="1000">
+                        </div>
+                        <div class="box left">
+                            <label>Общий вес:</label><br>
+                            <strong id="card_weight">5 кг</strong>
+                        </div>
+                        <div class="box right">
+                            <button class="right cta" onclick="popup(popup_phone)">Заказать</button>
+                        </div>
+                        <div class="box right">
+                            <label>ИТОГО:</label><br>
+                            <strong id="card_total">40000 тг</strong>
+                        </div>
+                    </div>
+                </line>
+            </wrapper>
+        </main>
+        
+        <footer>
+            <line>
+                <wrapper>
+                    <div class="column6">
+                        <ul>
+                            <li>
+                                <a href="">Главная</a>
+                            </li>
+                            <li>
+                                <a href="">Услуги</a>
+                            </li>
+                            <li>
+                                <a href="">О нас</a>
+                            </li>
+                            <li>
+                                <a href="">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column3">
+                        <icon class="icon-map-marker"></icon>
+                        <span>
+                            г. Астана, ул. Сейфуллина, <br>д. 39
+                        </span>
+                    </div>
+                    <div class="column3">
+                        <icon class="icon-phone"></icon>
+                        <span>
+                            <strong>+7 (701) 834 0111</strong><br>
+                            <a class="cta" onclick="popup(popup_phone)">Заказать обратный звонок</a>
+                        </span>
+                    </div>
+                </wrapper>
+            </line>
+            <line>
+                <wrapper>
+                    <small>© 2013 - 2015 Astana Ventures</small>
+                </wrapper>
+            </line>
+        </footer>
+        
+        <fade class="hidden"></fade>
+        <popup id="popup_phone" class="hidden">
+            <header>
+                Введите данные
+                <icon class="icon-close"></icon>
+            </header>
+            <form method="post" id="get_phone" action="post.php">
+                <label>Имя:</label><br>
+                <input name="name" type="text" placeholder="Азамат"><br>
+                <label>Телефон:</label><br>
+                <input name="phone" type="text" placeholder="+7 777 123 4567">
+            </form>
+            <footer>
+                <button id="send_phone" class="cta" onclick="AjaxFormRequest('get_result', 'get_phone', 'post.php')">Заказать</button>
+            </footer>
+            <popup id="get_result" class="hidden">
+                <header>
+                    Спасибо!
+                    <icon class="icon-close"></icon>
+                </header>
+                <form>
+                    Наш оператор свяжется с вами в течение 30 минут
+                </form>
+                <footer>
+                    <button class="cta">Закрыть</button>
+                </footer>
+            </popup>
+        </popup>
+
+        <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-46778520-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/format.css">
+		<link rel="stylesheet" href="css/animation.css">
+		<link rel="stylesheet" href="css/sss.css">
+		<link rel="stylesheet" href="css/brands.css">
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+		
+		<div id="fade" onclick="popOut()"></div>
+		
+		<div class="container"><div class="scrollable"><div id="popup">
+			<button class="close style" onclick="popOut()"><i class="fa fa-times"></i></button>
+			<div class="form">
+				<div class="h">Регистрация экспонента</div>
+				<strong>После регистрации с Вами свяжется ваш персональный менеджер для уточнения деталей по участию</strong>
+				<form id="register" action="<?=base_url()?>welcome/save_participant" method="post">
+					<div class="block">
+						<p><span>*</span> Поля обязательные для заполнения</p>
+						<div class="line">
+							<input id="inpt_fio" name="inpt_fio" class="edit large" placeholder="ФИО *">
+						</div>
+						<div class="line">
+							<input id="inpt_email" name="inpt_email" class="edit small" placeholder="Email *">
+						</div>
+						<div class="line">
+							<input id="inpt_company" name="inpt_company" class="edit small" placeholder="Компания *">
+							<input id="inpt_about" name="inpt_about" class="edit large" placeholder="Краткая информация о бренде">
+						</div>
+						<div class="line">
+							<input id="slct_country" name="slct_country"  class="edit small" placeholder="Страна">
+							<input id="slct_city" name="slct_city" class="edit small" placeholder="Город">
+						</div>
+						<div class="line">
+							<input id="inpt_phone" name="inpt_phone" class="edit small" placeholder="Основной телефон *">
+							<input id="inpt_phone_add" name="inpt_phone_add" class="edit small" placeholder="Дополн. телефон">
+							<input id="inpt_site" name="inpt_site" class="edit small" placeholder="Веб-сайт">
+						</div>
+					</div>
+					<div class="block">
+						<div class="line">
+							<label for="slct_payment" class="line">Выберите пакет участника</label>
+						</div>
+						<div class="selection line">
+						
+								<input id="check1" type="checkbox" class="variant">
+								<label for="check1" class="check_label">Эконом</label>
+								
+								<input id="check2" type="checkbox" class="variant">
+								<label for="check2" class="check_label">Бизнес</label>
+								
+								<input id="check3" type="checkbox" class="variant">
+								<label for="check3" class="check_label selected">Люкс</label>
+						</div>
+						<a href="../info" target="_blank">подробнее о пакетах экспонента</a>
+					</div>
+					<div class="block">
+						<div class="line">
+							<label for="slct_payment" class="line">Когда Вы готовы произвести оплату? *</label>
+						</div>
+						<div class="line">
+							<select id="slct_payment" name="slct_payment" class="edit valid">
+								<option value="8">Август (до 31 августа)</option>
+								<option value="9">Сентябрь (до 30 сентября)</option>
+								<option value="10">Октябрь (до 31 октября)</option>
+								<option value="11">Ноябрь (до 30 ноября)</option>
+								<option value="12">Декабрь (до 2 декабря)</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="line">
+							<label for="inpt_space">Укажите свои реквизиты для выставления счета</label>
+						</div>
+						<div class="line">
+							<textarea rows="4" cols="50" id="inpt_space" name="inpt_space" class="edit" placeholder="Реквизиты"></textarea>
+						</div>
+					</div>
+					<div class="block">
+						<div class="line">
+							<input type="checkbox" id="check_location" name="check_location" class="check" value="1">
+							<label for="check_location" class="check_label">Я нуждаюсь в помощи при размещении в городе Астана</label>
+						</div>
+						<div class="line">
+							<input type="checkbox" id="check_tour" name="check_tour" class="check" value="1">
+							<label for="check_tour" class="check_label">Я желаю принять участие в property tour по ТРЦ Астаны и Алматы</label>
+						</div>
+						<a href="../tour" target="_blank">подробнее о property tour</a>
+					</div>
+					<div class="block">
+						<div class="line">
+							<textarea rows="4" cols="50" id="text_comment" name="text_comment" class="edit" placeholder="Сообщение"></textarea>
+						</div>
+					</div>
+					<div class="block">
+						<div class="line">
+							<button class="btn btn-primary cta">Принять участие</button>
+							<button id="btnCancelCabinet" class="btn style bordered" onclick="popOut()">Отмена</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div></div></div>
+		
+		<nav class="center">
+			<a id="home" class="left" onclick="scrollTo('header')">Retail Franchising Week</a>
+			<ul>
+				<li><a id="nav1" onclick="scrollTo('definition')">Что это</a></li>
+				<li><a id="nav2" onclick="scrollTo('profits')">Возможности</a></li>
+				<li><a id="nav3" onclick="scrollTo('format')">Программа</a></li>
+				<li><a id="nav4" onclick="scrollTo('offer')">Акция</a></li>
+				<li><a id="nav4" onclick="scrollTo('scheme')">Стенды</a></li>
+				<!--li><a id="nav4" onclick="scrollTo('speakers')">Спикеры</a></li-->
+				<li><a id="nav4" onclick="scrollTo('comments')">Отзывы</a></li>
+				<li><a id="nav4" onclick="scrollTo('team')">Команда</a></li>
+				<li><a id="nav4" onclick="scrollTo('partners')">Партнеры</a></li>
+				<li><a id="nav4" onclick="scrollTo('request')">Контакты</a></li>
+			</ul>
+			<button id="signup" onclick="popUp()">Регистрация</button>
+		</nav>
+		
+		<header id="header">
+			<div class="wrapper">
+				<div id="language" class="toggle">
+					<button class="active">Рус</button>
+					<button class="style bordered">Eng</button>
+				</div>
+				<div class="half right">
+					<div class="line">
+						<div>
+							<h2>
+								Первый<br>
+								казахстанский<br>
+								фестиваль<br>
+								ритейл<br>
+								франшиз<br>
+							</h2>
+							<h1>
+								Retail<br>
+								Franchising<br>
+								Week
+							</h1>
+						</div>
+					</div>
+					<div class="line">
+						<div id="header-timer" class="timer left bordered">
+							<div class="h">До начала:</div>
+							<div class="center">
+								<div id="days" class="count">
+									<div class="inverse">
+										19
+									</div>
+									<div class="hint">дней</div>
+								</div>
+								<div id="hours" class="count">
+									<div class="inverse">
+										20
+									</div>
+									<div class="hint">часов</div>
+								</div>
+								<div id="mins" class="count">
+									<div class="inverse">
+										41
+									</div>
+									<div class="hint">минут</div>
+								</div>
+								<div id="secs" class="count">
+									<div class="inverse">
+										20
+									</div>
+									<div class="hint">секунд</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="line">
+						<div class="left">
+							<button id="participate" class="cta" onclick="popUp()">Принять участие</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+				
+		<div id="reasons" class="inverse">
+			<div class="wrapper">
+				<div id="reason1" class="reason fifth">
+					<div class="icon center">
+						<i class="fa fa-clock-o"></i>
+					</div>
+					<div class="middle">
+						<p><span>3-6</span> декабря<br>2014 года</p>
+					</div>
+				</div>
+				<div id="reason2" class="reason fifth">
+					<div class="icon center">
+						<i class="fa fa-map-marker"></i>
+					</div>
+					<div class="middle">
+						<p>Астана<br>"Radisson"</p>
+						<a class="shortcut" href="https://www.google.com/maps/place/Radisson+SAS/@51.159037,71.412882,16z/data=!4m2!3m1!1s0x0:0x1e920771cef0138a?hl=ru-RU" target="_blank">показать на карте</a>
+					</div>
+				</div>
+				<div id="reason3" class="reason fifth">
+					<div class="icon center">
+						<i class="fa fa-microphone"></i>
+					</div>
+					<div class="middle">
+						<p><span>8</span> международных спикеров</p>
+					</div>
+				</div>
+				<div id="reason4" class="reason fifth">
+					<div class="icon center">
+						<i class="businessmen"></i>
+					</div>
+					<div class="middle">
+						<p>более <span>100</span> потенциальных<br>франчайзи</span></p>
+					</div>
+				</div>
+				<div id="reason5" class="reason fifth">
+					<div class="icon center">
+						<i class="stand"></i>
+					</div>
+					<div class="middle">
+						<p><span>50</span> стендов<br>Осталось: <span class="number">37</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="definition" class="next">
+			<div class="wrapper">
+				<h3>Что такое Retail Franchising Week?</h3>
+				<!--div class="half left">
+					<iframe width="100%" height="263" src="//www.youtube.com/embed/TEMV_rjLiXs?wmode=transparent" style="position:relative;top:5px;margin-top:-5px;" frameborder="0" allowfullscreen=""></iframe>
+				</div>
+				<div class="half left">
+					<p>Retail Franchising Week – это первый казахстанский фестиваль ритейл-франшиз, выставка, призванная собрать на одной площадке всех, кто заинтересован в развитии ритейла, торговой недвижимости и франчайзинга в Казахстане</p>
+				</div-->
+			</div>
+		</div>
+		
+		<div id="definition2">
+			<div class="wrapper">
+				<h3>Мы приглашаем принять участие</h3>
+			</div>
+		</div>		
+		
+		<div id="profits" class="next inverse">
+			<div class="wrapper">
+				<h3>8 причин принять активное участие</h3>
+				<div class="odd line">
+					<div class="half left">
+						<div id="profit1" class="profit">
+							<div class="icon">
+								<i class="fa fa-globe"></i>
+							</div>
+							<div class="middle">
+								<strong>Новый рынок</strong>
+								<p>Возможность продать свою франшизу в Казахстане</p>
+							</div>
+						</div>
+					</div>
+					<div class="half left">
+						<div id="profit2" class="profit right">
+							<div class="icon">
+								<i class="fa fa-graduation-cap"></i>
+							</div>
+							<div class="middle">
+								<strong>Получить знания</strong>
+								<p>Узнать все о казахстанском рынке ритейл и торговой недвижимости</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="even line">
+					<div class="half left">
+						<div id="profit3" class="profit left">
+							<div class="icon">
+								<i class="handshake"></i>
+							</div>
+							<div class="middle">
+								<strong>Деловые связи</strong>
+								<p>Возможность наладить новые деловые связи</p>
+							</div>
+						</div>
+					</div>
+					<div class="half left">
+						<div id="profit4" class="profit right">
+							<div class="icon">
+								<i class="fa fa-bullhorn"></i>
+							</div>
+							<div class="middle">
+								<strong>Продвижение</strong>
+								<p>Эффективно заявить о себе на рынке Казахстана</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="odd line">
+					<div class="half left">
+						<div id="profit5" class="profit">
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+							<div class="middle">
+								<strong>Новые идеи</strong>
+								<p>Возможность разработать и развить новые идеи</p>
+							</div>
+						</div>
+					</div>
+					<div class="half left">
+						<div id="profit6" class="profit right">
+							<div class="icon">
+								<i class="bus"></i>
+							</div>
+							<div class="middle">
+								<strong>Тур по недвижимости</strong>
+								<p>Возможность увидеть знаковые торгово-развлекательные центры двух главных городов Казахстана</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="even line">
+					<div class="half left">
+						<div id="profit7" class="profit left">
+							<div class="icon">
+								<i class="information"></i>
+							</div>
+							<div class="middle">
+								<strong>Все о Казахстане</strong>
+								<p>Возможность получить информацию о Казахстане из первых уст </p>
+							</div>
+						</div>
+					</div>
+					<div class="half left">
+						<div id="profit8" class="profit right">
+							<div class="icon">
+								<i class="contract"></i>
+							</div>
+							<div class="middle">
+								<strong>Новые контракты</strong>
+								<p>Возможность заключить новые контракты и выгодные сделки на самой выставке</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="format" class="next">
+			<div class="wrapper" style="position: relative">
+				<h3>Программа мероприятия</h3>
+				<img width="100%" src="../img/background/format.svg">
+				<a style="position: absolute; top: 232px; left: 112px;" href="../info" target="_blank">3-4 декабря с 9:00 до 18:00</a>
+				<a style="position: absolute; top: 232px; right: 152px;" href="../tour" target="_blank">подробнее о туре</a>
+				<!--div class="navigation center">
+					<div id="tab1" class="tab active">
+						<strong>1</strong><br>
+						<p>день</p>
+					</div>
+					<div id="tab2" class="tab even">
+						<strong>2</strong><br>
+						<p>день</p>
+					</div>
+					<div id="tab3" class="tab">
+						<strong>3</strong><br>
+						<p>день</p>
+					</div>
+					<div id="tab4" class="tab even">
+						<strong>4</strong><br>
+						<p>день</p>
+					</div>
+				</div-->
+				<!--div id="day1" class="day active">
+					<div id="day1-step1" class="step center">
+						<div class="odd event registration">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+							xml:space="preserve">
+								<g>
+									<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 	"/>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step1-1" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 			"/>
+										</defs>
+										<clipPath id="day1-step1-2">
+											<use xlink:href="#day1-step1-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step1-2)">
+											<image overflow="visible" width="600" height="310" xlink:href="../img/format/photo1.jpg"  transform="matrix(0.4968 0 0 0.4968 43.4717 -19.6157)"></image>
+										</g>
+									</g>
+									<polygon opacity="0.2" fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 	"/>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-pencil"></i>
+							</div>
+							<div class="event-text">
+								<strong>8<sup>00</sup> - 9<sup>00</sup></strong>
+								<p>Регистрация участников / Завтрак</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step2" class="step center">
+						<div class="event opening even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step2-1" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+										</defs>
+										<clipPath id="day1-step2-2">
+											<use xlink:href="#day1-step2-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step2-2)">
+											<image overflow="visible" width="430" height="232" xlink:href="../img/format/photo1.jpg"  transform="matrix(0.6932 0 0 0.6932 4.882813e-004 -23.0239)">
+										</g>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-key"></i>
+							</div>
+							<div class="event-text">
+								<strong>9<sup>00</sup> - 9<sup>30</sup></strong>
+								<p>Церемония официального открытия</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step3" class="step center">
+						<div class="odd event exhibition">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-youtube-play"></i>
+							</div>
+							<div class="event-text">
+								<strong>9<sup>30</sup> - 18<sup>00</sup></strong>
+								<p>Выставка (залы Сарыарка 1,2)</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step4" class="step center">
+						<div class="event speaking even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step4-1" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+										</defs>
+										<clipPath id="day1-step4-2">
+											<use xlink:href="#day1-step4-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step4-2)">
+											<image overflow="visible" width="430" height="232" xlink:href="../img/format/speaker1.jpg"  transform="matrix(0.6932 0 0 0.6932 4.882813e-004 -23.0239)">
+										</g>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>11<sup>00</sup> - 12<sup>00</sup></strong>
+								<p>Выступление спикера №1</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step5" class="step center">
+						<div class="odd event speaking">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step5-1" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 			"/>
+										</defs>
+										<clipPath id="day1-step5-2">
+											<use xlink:href="#day1-step5-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step5-2)">
+											<image overflow="visible" width="600" height="310" xlink:href="../img/format/photo1.jpg"  transform="matrix(0.4968 0 0 0.4968 43.4717 -19.6157)"></image>
+										</g>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>12<sup>00</sup> - 13<sup>00</sup></strong>
+								<p>Выступление спикера №2</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step6" class="step center">
+						<div class="event meal even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>13<sup>00</sup> - 14<sup>00</sup></strong>
+								<p>Ланч</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step7" class="step center">
+						<div class="odd event speaking">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step7-1" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 			"/>
+										</defs>
+										<clipPath id="day1-step7-2">
+											<use xlink:href="#day1-step7-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step7-2)">
+											<image overflow="visible" width="600" height="310" xlink:href="../img/format/photo1.jpg"  transform="matrix(0.4968 0 0 0.4968 43.4717 -19.6157)"></image>
+										</g>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>15<sup>00</sup> - 16<sup>00</sup></strong>
+								<p>Выступление спикера №3</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step8" class="step center">
+						<div class="event speaking even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g class="clipped">
+										<defs>
+											<polygon id="day1-step8-1" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+										</defs>
+										<clipPath id="day1-step8-2">
+											<use xlink:href="#day1-step8-1"  overflow="visible"/>
+										</clipPath>
+										<g transform="matrix(1 0 0 1 0 -1.907349e-006)" clip-path="url(#day1-step8-2)">
+											<image overflow="visible" width="430" height="232" xlink:href="../img/format/speaker1.jpg"  transform="matrix(0.6932 0 0 0.6932 4.882813e-004 -23.0239)">
+										</g>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>16<sup>00</sup> - 17<sup>00</sup></strong>
+								<p>Выступление спикера №4</p>
+							</div>
+						</div>
+					</div>
+					<div id="day1-step9" class="step center">
+						<div class="odd event meal">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>19<sup>00</sup> - 21<sup>00</sup></strong>
+								<p>Гала-ужин (entertainment, networking)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="day2" class="day">
+					<div id="day2-step1" class="step center">
+						<div class="odd event registration">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-pencil"></i>
+							</div>
+							<div class="event-text">
+								<strong>8<sup>00</sup> - 9<sup>00</sup></strong>
+								<p>Регистрация участников / Завтрак</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step2" class="step center">
+						<div class="event exhibition even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-youtube-play"></i>
+							</div>
+							<div class="event-text">
+								<strong>9<sup>00</sup> - 18<sup>00</sup></strong>
+								<p>Выставка</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step3" class="step center">
+						<div class="odd event speaking">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>11<sup>00</sup> - 12<sup>00</sup></strong>
+								<p>Выступление спикера №1</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step4" class="step center">
+						<div class="event speaking even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>12<sup>00</sup> - 13<sup>00</sup></strong>
+								<p>Выступление спикера №2</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step5" class="step center">
+						<div class="odd event meal">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>13<sup>00</sup> - 14<sup>00</sup></strong>
+								<p>Ланч</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step6" class="step center">
+						<div class="event speaking even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>15<sup>00</sup> - 16<sup>00</sup></strong>
+								<p>Выступление спикера №3</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step7" class="step center">
+						<div class="odd event speaking">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-microphone"></i>
+							</div>
+							<div class="event-text">
+								<strong>16<sup>00</sup> - 17<sup>00</sup></strong>
+								<p>Выступление спикера №4</p>
+							</div>
+						</div>
+					</div>
+					<div id="day2-step8" class="step center">
+						<div class="event meal even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>19<sup>00</sup> - 21<sup>00</sup></strong>
+								<p>Ужин</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="day3" class="day">
+					<div id="day3-step1" class="step center">
+						<div class="odd event appointment">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-map-marker"></i>
+							</div>
+							<div class="event-text">
+								<strong>9<sup>30</sup> - 10<sup>00</sup></strong>
+								<p>Сбор участников тура</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step2" class="step center">
+						<div class="event excursion even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>10<sup>00</sup> - 11<sup>30</sup></strong>
+								<p>Экскурсия по городу, знакомство с ТРЦ</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step3" class="step center">
+						<div class="odd event excursion">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>11<sup>30</sup> - 13<sup>00</sup></strong>
+								<p>Экскурсия по городу, знакомство с ТРЦ</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step4" class="step center">
+						<div class="event meal even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>13<sup>00</sup> - 14<sup>00</sup></strong>
+								<p>Обед</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step5" class="step center">
+						<div class="odd event excursion">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>14<sup>00</sup> - 16<sup>00</sup></strong>
+								<p>Экскурсия по городу, знакомство с ТРЦ</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step6" class="step center">
+						<div class="event hotel even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-building"></i>
+							</div>
+							<div class="event-text">
+								<strong>16<sup>30</sup><sup></sup></strong>
+								<p>Возвращение в отель</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step7" class="step center">
+						<div class="odd event road">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-taxi"></i>
+							</div>
+							<div class="event-text">
+								<strong><sup>Время уточняется</sup><sup></sup></strong>
+								<p>Выезд в аэропорт</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step8" class="step center">
+						<div class="event plane even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-plane"></i>
+							</div>
+							<div class="event-text">
+								<strong><sup>Время уточняется</sup><sup></sup></strong>
+								<p>Вылет в Алматы</p>
+							</div>
+						</div>
+					</div>
+					<div id="day3-step9" class="step center">
+						<div class="odd event hotel">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-building"></i>
+							</div>
+							<div class="event-text">
+								<strong><sup>Время уточняется</sup><sup></sup></strong>
+								<p>Заезд в отель</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="day4" class="day">
+					<div id="day4-step1" class="step center">
+						<div class="odd event appointment">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-map-marker"></i>
+							</div>
+							<div class="event-text">
+								<strong>9<sup>30</sup> - 10<sup>00</sup></strong>
+								<p>Сбор участников тура</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step2" class="step center">
+						<div class="event excursion even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>10<sup>00</sup> - 12<sup>00</sup></strong>
+								<p>Знакомство с ТРЦ, кофе-брейк</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step3" class="step center">
+						<div class="odd event meal">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>12<sup>00</sup> - 13<sup>00</sup></strong>
+								<p>Обед</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step4" class="step center">
+						<div class="event excursion even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>13<sup>00</sup> - 15<sup>00</sup></strong>
+								<p>Знакомство с ТРЦ, кофе-брейк</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step5" class="step center">
+						<div class="odd event excursion">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-university"></i>
+							</div>
+							<div class="event-text">
+								<strong>15<sup>00</sup> - 17<sup>00</sup></strong>
+								<p>Знакомство с ТРЦ, кофе-брейк</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step6" class="step center">
+						<div class="event meal even">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="22.848,114.781 0,57.39 22.848,0 298.087,0 298.087,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="22.848,57.39 0,57.39 22.848,0 298.087,0 298.087,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M264.911,85.48c-15.512-18.324-13.236-45.753,5.085-61.264C288.32,8.7,315.749,10.98,331.262,29.3
+										c15.515,18.322,13.237,45.753-5.085,61.265C307.857,106.08,280.426,103.801,264.911,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M269.2,81.848c-13.509-15.953-11.527-39.836,4.426-53.346c15.954-13.51,39.842-11.525,53.348,4.431
+										c13.512,15.951,11.525,39.837-4.429,53.346C306.592,99.785,282.708,97.805,269.2,81.848z"/>
+									<path fill="#FFFFFF" d="M275.805,76.255c-10.417-12.307-8.888-30.725,3.417-41.146c12.307-10.418,30.728-8.889,41.147,3.416
+										c10.417,12.308,8.889,30.723-3.417,41.143C304.646,90.09,286.223,88.56,275.805,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-cutlery"></i>
+							</div>
+							<div class="event-text">
+								<strong>18<sup>00</sup><sup></sup></strong>
+								<p>Ужин</p>
+							</div>
+						</div>
+					</div>
+					<div id="day4-step7" class="step center">
+						<div class="odd event plane">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 width="341.558px" height="114.781px" viewBox="0 0 341.558 114.781" enable-background="new 0 0 341.558 114.781"
+								 xml:space="preserve">
+								<g>
+									<g>
+										<polygon class="colored" fill="#4DB6AC" points="318.71,114.781 341.558,57.39 318.71,0 43.471,0 43.471,114.781 		"/>
+									</g>
+									<g opacity="0.2">
+										<polygon fill="#FFFFFF" points="318.71,57.39 341.558,57.39 318.71,0 43.471,0 43.471,57.39 		"/>
+									</g>
+								</g>
+								<g>
+									<path fill="#FFFFFF" d="M76.647,85.48c15.512-18.324,13.236-45.753-5.085-61.264C53.238,8.7,25.81,10.98,10.296,29.3
+										C-5.219,47.622-2.94,75.054,15.381,90.565C33.701,106.08,61.132,103.801,76.647,85.48z"/>
+									<path class="colored" fill="#4DB6AC" d="M72.358,81.848c13.509-15.953,11.527-39.836-4.426-53.346c-15.954-13.51-39.842-11.525-53.348,4.431
+										C1.073,48.884,3.06,72.77,19.014,86.278C34.967,99.785,58.851,97.805,72.358,81.848z"/>
+									<path fill="#FFFFFF" d="M65.754,76.255c10.417-12.307,8.888-30.725-3.417-41.146c-12.307-10.418-30.728-8.889-41.147,3.416
+										c-10.417,12.308-8.889,30.723,3.417,41.143C36.912,90.09,55.336,88.56,65.754,76.255z"/>
+								</g>
+							</svg>
+							<div class="icon">
+								<i class="fa colored fa-plane"></i>
+							</div>
+							<div class="event-text">
+								<strong><sup>Время уточняется</sup><sup></sup></strong>
+								<p>Вылет в Астану (вы также можете запланировать вылет с Алматы домой)</p>
+							</div>
+						</div>
+					</div>
+				</div-->
+			</div>
+		</div>
+		
+		<div id="offer" class="next inverse">
+			<div class="wrapper">
+				<h3>Акция</h3>
+				<div class="half center">
+					<p class="p18">
+						Зарегистрируйтесь прямо сейчас и получите скидку за раннюю регистрацию!
+					</p>
+					<div id="currency" class="toggle line">
+						<button class="active">₸</button>
+						<button>$</button>
+						<button>€</button>
+						<button>P</button>
+					</div>
+				</div>
+				<div class="line">
+					<div class="half left">
+						<div class="center">
+							<div class="line">
+								<strike>август 96 000 ₸</strike><br>
+								<strong style="color: white">сейчас </strong><strong>80 000 ₸</strong>
+							</div>
+							<div class="line">
+								<div class="timer bordered">
+									<div class="h">До конца акции:</div>
+									<div class="center">
+										<div id="offer-days" class="count">
+											<div class="style">
+												19
+											</div>
+											<div class="hint">дней</div>
+										</div>
+										<div id="offer-hours" class="count">
+											<div class="style">
+												20
+											</div>
+											<div class="hint">часов</div>
+										</div>
+										<div id="offer-mins" class="count">
+											<div class="style">
+												41
+											</div>
+											<div class="hint">минут</div>
+										</div>
+										<div id="offer-secs" class="count">
+											<div class="style">
+												20
+											</div>
+											<div class="hint">секунд</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button id="offer-button" class="line" onclick="popUp()">Участвовать в акции</button>
+						</div>
+					</div>
+					<div class="half right">
+						<div class="line">
+							<div class="month block center">
+								<p class="p18">До конца августа:</p>
+								<p class="p24">96 000 ₸</p>
+							</div>
+						</div>
+						<div class="line">
+							<div class="month block center">
+								<p class="p18">До конца сентября:</p>
+								<p class="p24">110 000 ₸</p>
+							</div>
+						</div>
+						<div class="line">
+							<div class="month block center">
+								<p class="p18">До конца октября:</p>
+								<p class="p24">120 000 ₸</p>
+							</div>
+						</div>
+						<div class="line">
+							<div class="month block center">
+								<p class="p18">До конца ноября:</p>
+								<p class="p24">150 000 ₸</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="half center">
+					<p class="block">Цена указана за 1 кв. м. площади стенда. Стенд вы можете выбрать в разделе <a>"Стенды"</a></p>
+				</div>
+			</div>
+		</div>
+			
+		<div id="scheme" class="next">
+			<div class="wrapper" style="overflow: show">
+				<h3>Схема мест</h3>
+				
+				<div class="line center">
+					<div class="block fifth" style="background: #00887a; color: white; height: 32px; line-height: 32px">Свободно</div><div class="block fifth" style="background: #7fcac3; color: white; height: 32px; line-height: 32px">Забронировано</div>
+				</div>
+
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="960px" viewBox="0 0 1068.563 1000" enable-background="new 0 0 1068.563 1000" xml:space="preserve">
+				<font horiz-adv-x="2048">
+				<font-face font-family="Roboto-Bold" units-per-em="2048" underline-position="-150" underline-thickness="100"/>
+				<missing-glyph horiz-adv-x="510"/>
+				<glyph unicode=" " horiz-adv-x="510"/>
+				<glyph unicode="1" horiz-adv-x="1175" d="M759,0l-292,0l0,1198l-296,0l0,206l588,52z"/>
+				<glyph unicode="2" horiz-adv-x="1175" d="M1093,0l-994,0l0,191l471,505C638,774 686,840 715,894C744,947 758,997 758,1043C758,1104 742,1155 709,1194C676,1233 629,1252 568,1252C501,1252 450,1229 415,1184C380,1138 362,1077 362,1001l-284,0l-2,6C73,1138 116,1250 206,1341C295,1432 416,1477 568,1477C718,1477 836,1438 922,1360C1007,1282 1050,1178 1050,1048C1050,960 1026,879 978,805C929,730 849,633 738,512l-259,-283l2,-5l612,0z"/>
+				<glyph unicode="3" horiz-adv-x="1175" d="M394,852l164,0C627,852 679,870 712,907C745,943 762,993 762,1058C762,1117 745,1164 712,1199C679,1234 630,1252 567,1252C512,1252 466,1236 429,1204C392,1172 373,1130 373,1078l-283,0l-2,6C84,1198 128,1292 219,1366C310,1440 424,1477 559,1477C710,1477 830,1441 920,1369C1009,1297 1054,1194 1054,1061C1054,998 1034,938 994,881C954,824 899,779 829,747C910,718 971,674 1014,615C1056,556 1077,487 1077,408C1077,275 1029,170 932,94C835,17 710,-21 559,-21C424,-21 308,15 211,87C114,158 67,259 70,390l2,6l283,0C355,340 375,294 415,258C455,221 506,203 567,203C634,203 688,222 727,259C766,296 785,347 785,411C785,488 766,544 728,580C689,615 633,633 558,633l-164,0z"/>
+				<glyph unicode="C" horiz-adv-x="1309" d="M1235,495l2,-6C1240,332 1192,208 1094,117C995,25 859,-21 684,-21C509,-21 366,35 257,148C148,261 93,406 93,583l0,289C93,1049 146,1194 253,1307C360,1420 498,1477 669,1477C849,1477 990,1431 1091,1339C1192,1246 1242,1120 1239,961l-2,-6l-284,0C953,1051 930,1125 884,1176C838,1227 766,1252 669,1252C582,1252 512,1217 461,1146C410,1075 384,984 384,874l0,-291C384,472 411,381 465,310C519,239 592,203 684,203C775,203 843,228 887,277C930,326 952,398 952,495z"/>
+				<glyph unicode="W" horiz-adv-x="1815" d="M1288,458l6,0l208,998l285,0l-340,-1456l-271,0l-267,961l-6,0l-267,-961l-271,0l-341,1456l286,0l209,-997l6,-1l273,998l215,0z"/>
+				<glyph unicode="&#x413;" horiz-adv-x="1141" d="M1085,1231l-657,0l0,-1231l-292,0l0,1456l949,0z"/>
+				<glyph unicode="&#x417;" horiz-adv-x="1345" d="M667,852C758,852 826,870 870,906C914,942 936,992 936,1057C936,1113 912,1160 863,1197C814,1234 744,1252 651,1252C578,1252 518,1235 470,1200C422,1165 398,1120 398,1065l-283,0l-1,6C110,1192 160,1290 265,1365C370,1440 498,1477 651,1477C828,1477 969,1441 1072,1369C1175,1297 1227,1194 1227,1061C1227,994 1205,933 1162,878C1119,823 1059,779 983,748C1069,719 1135,676 1181,619C1227,562 1250,491 1250,408C1250,274 1195,169 1084,93C973,17 829,-21 651,-21C498,-21 365,15 254,86C143,157 89,261 93,398l1,6l284,0C378,347 404,300 455,261C506,222 571,203 651,203C746,203 821,223 876,262C931,301 958,350 958,411C958,488 934,544 885,580C836,615 763,633 667,633l-197,0l0,219z"/>
+				<glyph unicode="&#x420;" horiz-adv-x="1334" d="M428,528l0,-528l-292,0l0,1456l580,0C883,1456 1015,1413 1111,1328C1207,1243 1255,1130 1255,991C1255,852 1207,740 1111,655C1015,570 883,528 716,528M428,753l288,0C797,753 859,775 901,820C943,864 964,920 964,989C964,1059 943,1117 902,1163C860,1208 798,1231 716,1231l-288,0z"/>
+				<glyph unicode="&#x421;" horiz-adv-x="1309" d="M1235,495l2,-6C1240,332 1192,208 1094,117C995,25 859,-21 684,-21C509,-21 366,35 257,148C148,261 93,406 93,583l0,289C93,1049 146,1194 253,1307C360,1420 498,1477 669,1477C849,1477 990,1431 1091,1339C1192,1246 1242,1120 1239,961l-2,-6l-284,0C953,1051 930,1125 884,1176C838,1227 766,1252 669,1252C582,1252 512,1217 461,1146C410,1075 384,984 384,874l0,-291C384,472 411,381 465,310C519,239 592,203 684,203C775,203 843,228 887,277C930,326 952,398 952,495z"/>
+				<glyph unicode="&#x430;" horiz-adv-x="1100" d="M747,0C736,25 727,51 720,78C712,105 706,133 703,162C673,109 634,66 585,31C536,-4 477,-21 409,-21C296,-21 208,8 147,67C86,125 55,204 55,305C55,411 96,493 178,552C259,610 378,639 535,639l163,0l0,86C698,777 684,817 657,846C630,875 589,889 536,889C489,889 452,878 427,855C401,832 388,800 388,759l-282,1l-1,6C100,857 140,936 224,1003C308,1069 418,1102 555,1102C684,1102 789,1069 870,1004C951,938 991,844 991,723l0,-447C991,225 995,178 1003,133C1010,88 1022,44 1039,0M480,195C531,195 577,208 617,233C657,258 684,288 698,321l0,153l-163,0C473,474 426,459 394,428C362,397 346,359 346,315C346,279 358,250 382,228C406,206 439,195 480,195z"/>
+				<glyph unicode="&#x432;" horiz-adv-x="1156" d="M127,0l0,1082l452,0C723,1082 835,1057 916,1006C996,955 1036,880 1036,780C1036,729 1019,684 986,645C952,606 904,576 842,555C924,539 986,509 1029,465C1071,420 1092,368 1092,309C1092,207 1054,130 978,78C901,26 792,0 649,0M419,451l0,-229l230,0C700,222 738,232 763,251C788,270 800,298 800,335C800,372 788,401 765,421C741,441 702,451 649,451M419,641l168,0C641,641 681,650 707,667C732,684 745,710 745,745C745,784 731,813 704,832C677,850 635,859 579,859l-160,0z"/>
+				<glyph unicode="&#x433;" horiz-adv-x="855" d="M846,856l-447,0l0,-856l-292,0l0,1082l739,0z"/>
+				<glyph unicode="&#x435;" horiz-adv-x="1084" d="M591,-21C435,-21 310,29 217,129C124,229 77,356 77,510l0,40C77,711 121,843 210,947C298,1051 416,1103 565,1102C711,1102 824,1058 905,970C986,882 1026,763 1026,613l0,-159l-646,0l-2,-6C383,377 407,318 450,272C492,226 549,203 622,203C687,203 740,210 783,223C826,236 872,256 923,284l79,-180C958,68 900,38 829,15C758,-9 678,-21 591,-21M565,877C511,877 468,856 437,815C406,774 386,719 379,652l3,-5l358,0l0,26C740,735 726,785 697,822C668,859 624,877 565,877z"/>
+				<glyph unicode="&#x438;" horiz-adv-x="1156" d="M758,1082l291,0l0,-1082l-291,0l0,660l-6,1l-353,-661l-292,0l0,1082l292,0l0,-658l6,-1z"/>
+				<glyph unicode="&#x439;" horiz-adv-x="1156" d="M758,1082l291,0l0,-1082l-291,0l0,660l-6,1l-353,-661l-292,0l0,1082l292,0l0,-658l6,-1M917,1553l2,-6C922,1462 893,1393 831,1340C768,1286 684,1259 579,1259C473,1259 389,1286 326,1340C263,1393 234,1462 238,1547l2,6l213,0C453,1518 463,1489 484,1466C504,1443 536,1432 579,1432C621,1432 652,1443 673,1466C693,1489 703,1518 703,1553z"/>
+				<glyph unicode="&#x43A;" horiz-adv-x="1148" d="M533,405l-112,0l0,-405l-292,0l0,1082l292,0l0,-412l102,0l233,412l369,0l-353,-510l385,-572l-389,0z"/>
+				<glyph unicode="&#x43B;" horiz-adv-x="1149" d="M1049,1082l0,-1082l-291,0l0,856l-260,0l0,-235C498,408 465,251 400,151C335,50 223,0 65,0l-47,0l-3,230l31,1C113,231 156,258 176,313C196,368 206,470 206,621l0,461z"/>
+				<glyph unicode="&#x43D;" horiz-adv-x="1156" d="M1047,0l-292,0l0,420l-356,0l0,-420l-292,0l0,1082l292,0l0,-438l356,0l0,438l292,0z"/>
+				<glyph unicode="&#x43E;" horiz-adv-x="1156" d="M67,551C67,712 112,845 202,948C292,1051 417,1102 576,1102C736,1102 861,1051 952,948C1043,845 1088,713 1088,551l0,-21C1088,367 1043,235 953,133C862,30 737,-21 578,-21C418,-21 293,30 203,133C112,235 67,367 67,530M358,530C358,431 375,352 410,293C445,233 501,203 578,203C653,203 709,233 744,293C779,353 796,432 796,530l0,21C796,647 778,725 743,786C708,847 652,877 576,877C501,877 446,847 411,786C376,725 358,646 358,551z"/>
+				<glyph unicode="&#x440;" horiz-adv-x="1156" d="M1088,511C1088,351 1051,222 977,125C903,28 800,-21 667,-21C610,-21 560,-10 516,11C472,32 434,62 403,103l0,-519l-291,0l0,1498l263,0l17,-128C424,1001 463,1038 508,1064C553,1089 605,1102 665,1102C799,1102 903,1050 977,945C1051,840 1088,703 1088,532M796,532C796,634 779,717 745,780C711,843 659,875 589,875C545,875 508,866 477,848C446,830 421,804 403,771l0,-474C421,266 446,243 477,227C508,211 546,203 591,203C662,203 714,231 747,286C780,341 796,416 796,511z"/>
+				<glyph unicode="&#x441;" horiz-adv-x="1060" d="M566,203C618,203 660,218 691,249C722,279 738,319 738,370l265,0l3,-6C1009,255 968,163 883,90C798,16 692,-21 566,-21C405,-21 280,30 193,132C106,234 62,365 62,525l0,30C62,714 106,845 193,948C280,1051 404,1102 565,1102C698,1102 806,1064 888,988C969,912 1009,812 1006,688l-2,-6l-266,0C738,738 723,785 692,822C661,859 619,877 565,877C488,877 433,847 402,787C370,727 354,650 354,555l0,-30C354,428 370,351 402,292C433,233 488,203 566,203z"/>
+				<glyph unicode="&#x442;" horiz-adv-x="1070" d="M1028,859l-346,0l0,-859l-293,0l0,859l-341,0l0,223l980,0z"/>
+				<glyph unicode="&#x445;" horiz-adv-x="1046" d="M519,738l6,0l166,344l330,0l-326,-535l337,-547l-329,0l-177,359l-177,-359l-330,0l337,547l-327,535l328,0z"/>
+				<glyph unicode="&#x446;" horiz-adv-x="1247" d="M107,1082l292,0l0,-858l358,0l0,858l292,0l0,-858l156,0l0,-582l-291,0l0,358l-807,0z"/>
+				<glyph unicode="&#x44B;" horiz-adv-x="1703" d="M442,732l203,0C790,732 905,699 988,632C1071,565 1113,477 1113,368C1113,258 1071,169 988,102C905,34 790,0 645,0l-496,0l0,1082l293,0M1507,0l-292,0l0,1082l292,0M442,508l0,-285l203,0C704,223 749,236 778,263C807,290 822,324 822,366C822,407 807,441 778,468C749,495 704,508 645,508z"/>
+				<glyph unicode="&#x424;" horiz-adv-x="1675" d="M988,1325l3,0C1173,1325 1321,1270 1436,1159C1551,1048 1608,902 1608,721C1608,542 1551,399 1436,291C1321,182 1172,128 991,128l-3,0l0,-188l-292,0l0,188l-6,0C507,128 359,182 245,290C130,398 73,541 73,719C73,900 130,1047 245,1158C360,1269 508,1325 690,1325l6,0l0,191l292,0M690,1085C587,1085 507,1053 448,990C389,926 360,836 360,719C360,606 389,519 448,458C507,397 587,367 690,367l6,0l0,718M988,1085l0,-718l5,0C1094,367 1174,398 1233,460C1292,521 1321,608 1321,721C1321,838 1292,928 1234,991C1175,1054 1095,1085 993,1085z"/>
+				<glyph unicode="&#x431;" horiz-adv-x="1167" d="M619,1022C771,1022 890,975 976,882C1062,788 1105,667 1105,518l0,-21C1105,344 1060,219 970,123C879,27 754,-21 595,-21C435,-21 310,27 220,123C129,219 84,344 84,497l0,145C85,879 131,1062 223,1191C315,1320 435,1399 584,1428C649,1439 697,1453 728,1471C759,1488 774,1517 774,1557l226,0l3,-6C1006,1422 976,1336 914,1294C852,1252 746,1219 597,1196C522,1183 463,1154 419,1108C374,1062 346,998 333,916l4,-5C374,944 417,970 466,991C515,1012 566,1022 619,1022M593,797C518,797 463,771 428,719C393,667 376,600 376,518l0,-21C376,408 393,337 428,284C463,230 518,203 595,203C670,203 726,230 761,284C796,337 813,408 813,497l0,21C813,600 795,667 760,719C725,771 669,797 593,797z"/>
+				<glyph unicode="&#x434;" horiz-adv-x="1295" d="M127,226C194,295 239,363 262,430C285,497 298,592 301,717l5,365l798,0l0,-858l156,0l-20,-548l-271,0l0,324l-639,0l0,-324l-272,0l-25,550M592,717C587,610 574,516 552,435C529,354 499,284 461,225l352,0l0,624l-219,0z"/>
+				</font>
+
+					<font horiz-adv-x="2048">
+				<!-- Roboto is a trademark of Google. -->
+				<!-- Copyright: Copyright 2014 Adobe System Incorporated. All rights reserved. -->
+				<font-face font-family="Roboto-Regular" units-per-em="2048" underline-position="-150" underline-thickness="100"/>
+				<missing-glyph horiz-adv-x="509"/>
+				<glyph unicode=" " horiz-adv-x="509"/>
+				<glyph unicode="0" horiz-adv-x="1154" d="M1040,555C1040,369 999,227 917,128C834,29 721,-21 578,-21C435,-21 321,29 238,128C155,227 113,370 113,555l0,345C113,1085 155,1228 238,1328C321,1427 433,1477 576,1477C719,1477 833,1427 916,1328C999,1228 1040,1085 1040,900M843,942C843,1068 820,1163 775,1227C729,1290 663,1322 576,1322C489,1322 423,1290 378,1227C333,1163 310,1068 310,942l0,-427C310,389 333,294 379,230C425,165 491,133 578,133C665,133 731,165 776,229C821,293 843,388 843,515z"/>
+				<glyph unicode="1" horiz-adv-x="1153" d="M681,0l-197,0l0,1264l-298,-4l0,142l495,54z"/>
+				<glyph unicode="2" horiz-adv-x="1153" d="M1062,0l-944,0l0,135l477,530C680,760 738,836 769,892C799,948 814,1005 814,1064C814,1137 793,1198 751,1248C708,1297 652,1322 582,1322C481,1322 407,1296 360,1245C312,1193 288,1120 288,1027l-189,0l-2,6C94,1158 135,1264 222,1349C309,1434 429,1477 582,1477C713,1477 817,1439 895,1363C972,1286 1011,1189 1011,1071C1011,992 988,912 941,833C894,753 828,667 743,576l-383,-417l2,-5l700,0z"/>
+				<glyph unicode="3" horiz-adv-x="1153" d="M388,819l172,0C647,819 709,841 746,885C782,928 800,989 800,1067C800,1150 779,1214 738,1257C697,1300 636,1322 555,1322C478,1322 417,1300 371,1255C324,1210 301,1150 301,1075l-189,0l-2,6C107,1191 147,1285 230,1362C313,1439 421,1477 555,1477C690,1477 797,1441 877,1370C957,1298 997,1196 997,1063C997,1003 979,943 943,884C906,824 852,778 779,747C866,718 928,673 965,612C1001,551 1019,482 1019,406C1019,273 976,169 889,93C802,17 690,-21 555,-21C422,-21 313,15 226,87C139,158 97,255 100,378l3,6l188,0C291,307 315,246 362,201C409,156 473,133 555,133C638,133 704,156 751,201C798,246 822,313 822,402C822,492 801,558 759,601C717,644 651,665 560,665l-172,0z"/>
+				<glyph unicode="4" horiz-adv-x="1153" d="M905,490l201,0l0,-154l-201,0l0,-336l-196,0l0,336l-654,0l0,111l642,1009l208,0M265,490l444,0l0,683l-6,1l-19,-50z"/>
+				<glyph unicode="5" horiz-adv-x="1153" d="M175,657l84,799l729,0l0,-175l-562,0l-48,-409C409,895 443,914 481,929C518,944 562,952 611,953C745,954 851,911 928,822C1005,733 1043,614 1043,464C1043,318 1004,201 926,112C847,23 733,-21 583,-21C460,-21 357,13 275,80C193,147 154,246 157,377l2,6l178,0C337,304 360,242 406,199C451,155 510,133 583,133C666,133 731,162 777,221C823,280 846,360 846,462C846,555 823,632 776,692C729,752 665,782 583,782C506,782 450,770 415,747C380,724 355,688 339,640z"/>
+				<glyph unicode="6" horiz-adv-x="1153" d="M675,1477C725,1477 775,1471 824,1460C873,1449 913,1434 945,1417l-42,-151C870,1283 836,1296 801,1307C765,1317 723,1322 675,1322C571,1322 487,1280 424,1197C360,1114 328,1005 328,871l0,-23C371,885 420,915 475,936C530,957 589,967 652,967C782,967 886,922 963,832C1040,742 1079,628 1079,490C1079,339 1038,217 956,122C873,27 763,-21 626,-21C483,-21 365,31 272,134C179,237 132,383 132,571l0,278C132,1036 184,1187 288,1303C392,1419 521,1477 675,1477M608,820C541,820 483,806 436,779C389,752 353,715 328,670l0,-118C328,418 356,315 413,242C470,169 541,133 626,133C707,133 770,167 815,236C860,304 882,389 882,490C882,586 858,665 810,727C761,789 694,820 608,820z"/>
+				<glyph unicode="7" horiz-adv-x="1153" d="M1062,1301C886,1092 767,906 706,745C644,583 599,387 572,157l-16,-157l-197,0l16,157C403,386 457,591 538,772C619,953 729,1129 869,1301l-792,0l0,155l985,0z"/>
+				<glyph unicode="8" horiz-adv-x="1153" d="M1010,1076C1010,1000 989,934 946,877C903,820 846,777 773,749C857,720 924,674 975,611C1025,548 1050,476 1050,394C1050,259 1006,157 919,86C831,15 717,-21 577,-21C434,-21 320,15 233,86C146,157 102,259 102,394C102,476 127,548 176,611C225,674 292,720 376,749C303,777 246,820 205,877C164,934 143,1000 143,1076C143,1204 183,1303 262,1373C341,1442 445,1477 575,1477C703,1477 808,1442 889,1373C970,1303 1010,1204 1010,1076M854,398C854,478 828,544 775,595C722,646 656,672 575,672C493,672 427,646 376,595C325,544 299,478 299,398C299,315 324,251 375,204C426,157 493,133 577,133C659,133 726,157 777,204C828,251 854,316 854,398M813,1072C813,1144 791,1204 746,1251C701,1298 644,1322 575,1322C505,1322 448,1299 405,1254C362,1208 340,1147 340,1072C340,998 362,939 406,894C449,849 506,827 577,827C646,827 703,849 747,894C791,939 813,998 813,1072z"/>
+				<glyph unicode="9" horiz-adv-x="1153" d="M511,133C607,133 684,169 742,242C799,315 828,423 828,566l0,66C795,585 755,549 706,525C657,500 602,488 542,488C401,488 290,532 207,619C124,706 83,825 83,978C83,1124 127,1244 215,1337C302,1430 409,1477 534,1477C686,1477 806,1430 894,1335C981,1240 1025,1100 1025,915l0,-347C1025,378 978,232 883,131C788,30 664,-21 511,-21C460,-21 408,-16 355,-6C302,3 254,18 212,38l30,151C281,168 322,154 365,146C407,137 456,133 511,133M542,642C615,642 675,658 724,689C772,720 807,760 828,809l0,126C828,1062 804,1159 755,1224C706,1289 634,1322 540,1322C468,1322 407,1290 356,1226C305,1161 280,1079 280,978C280,878 304,797 351,735C398,673 461,642 542,642z"/>
+				<glyph unicode="F" horiz-adv-x="1193" d="M1041,644l-664,0l0,-644l-197,0l0,1456l963,0l0,-155l-766,0l0,-502l664,0z"/>
+				<glyph unicode="S" horiz-adv-x="1277" d="M973,367C973,434 948,490 898,535C848,580 759,617 632,648C478,685 358,739 272,810C185,881 142,971 142,1079C142,1192 189,1287 282,1363C375,1439 495,1477 643,1477C802,1477 929,1433 1024,1346C1118,1259 1163,1157 1160,1042l-2,-6l-188,0C970,1121 942,1190 886,1243C829,1296 748,1322 643,1322C545,1322 470,1300 418,1256C365,1211 339,1153 339,1082C339,1019 367,966 424,924C481,881 573,844 700,812C853,774 970,718 1050,644C1130,570 1170,478 1170,369C1170,252 1122,157 1026,86C930,15 805,-21 650,-21C505,-21 376,18 265,97C153,176 99,281 102,413l2,6l188,0C292,326 326,255 395,206C464,157 549,133 650,133C749,133 828,154 886,196C944,238 973,295 973,367z"/>
+				<glyph unicode="&#x41A;" horiz-adv-x="1317" d="M547,657l-170,0l0,-657l-197,0l0,1456l197,0l0,-644l152,0l521,644l218,0l3,-5l-565,-699l606,-747l-3,-5l-235,0z"/>
+				<glyph unicode="&#x41F;" horiz-adv-x="1463" d="M1283,0l-198,0l0,1301l-708,0l0,-1301l-197,0l0,1456l1103,0z"/>
+				<glyph unicode="&#x430;" horiz-adv-x="1126" d="M808,0C801,33 796,62 793,87C789,112 787,137 786,162C749,110 702,67 643,32C584,-3 520,-21 452,-21C339,-21 254,8 195,66C136,123 106,203 106,304C106,407 148,488 232,547C315,605 429,634 572,634l214,0l0,107C786,804 767,855 728,892C689,929 635,947 564,947C501,947 449,931 410,899C370,866 350,827 350,782l-188,0l-2,6C156,867 193,939 272,1004C350,1069 451,1102 575,1102C698,1102 796,1071 871,1009C946,946 983,856 983,739l0,-521C983,179 985,142 989,106C993,70 1000,35 1011,0M481,144C552,144 617,162 674,199C731,236 769,278 786,325l0,176l-221,0C486,501 422,481 375,441C327,401 303,354 303,300C303,252 318,214 348,186C378,158 422,144 481,144z"/>
+				<glyph unicode="&#x434;" horiz-adv-x="1247" d="M131,154C186,218 229,285 258,355C287,424 307,531 317,675l16,407l707,0l0,-928l144,0l-19,-472l-178,0l0,318l-744,0l0,-318l-178,0l-19,472M514,675C507,555 490,453 463,368C436,283 401,212 358,154l485,0l0,753l-320,0z"/>
+				<glyph unicode="&#x435;" horiz-adv-x="1083" d="M592,-21C441,-21 322,29 233,130C144,230 99,360 99,520l0,44C99,718 145,846 237,949C328,1051 437,1102 562,1102C708,1102 818,1058 893,970C968,882 1005,765 1005,618l0,-123l-702,0l-3,-5C302,386 328,301 379,234C430,167 501,133 592,133C659,133 717,143 768,162C818,181 861,207 898,240l77,-128C936,74 885,42 822,17C759,-8 682,-21 592,-21M562,947C496,947 440,919 393,864C346,808 318,738 307,654l2,-5l499,0l0,26C808,752 787,817 746,869C705,921 643,947 562,947z"/>
+				<glyph unicode="&#x438;" horiz-adv-x="1164" d="M823,1082l197,0l0,-1082l-197,0l0,768l-6,2l-478,-770l-196,0l0,1082l196,0l0,-768l6,-2z"/>
+				<glyph unicode="&#x439;" horiz-adv-x="1164" d="M823,1082l197,0l0,-1082l-197,0l0,768l-6,2l-478,-770l-196,0l0,1082l196,0l0,-768l6,-2M875,1527l2,-6C880,1444 854,1381 800,1332C746,1283 673,1259 582,1259C490,1259 417,1283 363,1332C309,1381 284,1444 287,1521l2,6l151,0C440,1483 451,1447 474,1420C497,1393 533,1379 582,1379C630,1379 666,1393 689,1421C712,1448 724,1484 724,1527z"/>
+				<glyph unicode="&#x43B;" horiz-adv-x="1133" d="M1020,1082l0,-1082l-197,0l0,926l-366,0l0,-306C457,407 429,250 372,150C315,50 219,0 82,0l-56,0l4,168l41,1C141,169 190,203 218,272C245,340 259,456 259,620l0,462z"/>
+				<glyph unicode="&#x43C;" horiz-adv-x="1528" d="M759,258l6,0l354,824l246,0l0,-1082l-197,0l0,751l-6,2l-332,-753l-136,0l-338,770l-6,-2l0,-768l-197,0l0,1082l254,0z"/>
+				<glyph unicode="&#x43D;" horiz-adv-x="1164" d="M1019,0l-197,0l0,460l-482,0l0,-460l-197,0l0,1082l197,0l0,-468l482,0l0,468l197,0z"/>
+				<glyph unicode="&#x43E;" horiz-adv-x="1164" d="M97,551C97,711 140,843 227,947C314,1050 431,1102 580,1102C730,1102 849,1050 936,947C1023,844 1066,712 1066,551l0,-22C1066,368 1023,236 936,133C849,30 731,-21 582,-21C433,-21 315,31 228,134C141,237 97,368 97,529M294,529C294,414 318,320 367,245C415,170 487,133 582,133C676,133 747,170 796,245C845,320 869,414 869,529l0,22C869,664 845,759 796,834C747,909 675,947 580,947C486,947 415,909 367,834C318,759 294,664 294,551z"/>
+				<glyph unicode="&#x442;" horiz-adv-x="1048" d="M977,929l-357,0l0,-929l-197,0l0,929l-352,0l0,153l906,0z"/>
+				<glyph unicode="&#x443;" horiz-adv-x="1030" d="M474,401l35,-136l6,0l266,817l219,0l-455,-1248C518,-239 479,-302 428,-356C377,-410 308,-437 221,-437C205,-437 185,-435 160,-431C135,-428 116,-424 103,-421l20,155C119,-265 131,-266 159,-268C186,-270 204,-271 211,-271C253,-271 287,-252 314,-215C341,-178 363,-136 381,-91l47,113l-402,1060l220,0z"/>
+				<glyph unicode="&#x444;" horiz-adv-x="1485" d="M98,521C98,696 132,837 200,943C268,1049 365,1102 492,1102C519,1102 544,1100 568,1095C591,1090 614,1084 635,1076l0,484l197,0l0,-490C855,1080 879,1088 906,1094C933,1099 962,1102 993,1102C1120,1102 1217,1049 1285,943C1353,837 1387,696 1387,521l0,-21C1387,343 1353,217 1285,122C1216,27 1120,-21 995,-21C964,-21 934,-18 907,-13C880,-8 855,0 832,9l0,-425l-197,0l0,420C614,-4 591,-10 567,-14C543,-19 517,-21 490,-21C365,-21 268,27 200,122C132,217 98,343 98,500M1190,521C1190,646 1169,749 1127,828C1084,907 1020,947 933,947C913,947 895,946 878,943C861,940 846,935 832,930l0,-783C845,142 861,139 878,137C895,134 914,133 935,133C1022,133 1086,167 1128,234C1169,301 1190,390 1190,500M295,500C295,389 314,300 353,233C391,166 453,133 540,133C558,133 575,134 591,137C607,139 622,142 635,147l0,786C622,937 607,940 592,943C577,946 560,947 542,947C455,947 393,908 354,829C315,750 295,648 295,521z"/>
+				<glyph unicode="&#x44F;" horiz-adv-x="1163" d="M1010,1082l0,-1082l-197,0l0,420l-267,0l-256,-420l-212,0l274,449C283,474 231,513 194,566C157,619 138,681 138,751C138,848 175,928 249,990C322,1051 424,1082 553,1082M336,749C336,701 352,660 385,626C418,592 467,575 532,575l281,0l0,354l-260,0C482,929 428,911 391,876C354,840 336,798 336,749z"/>
+				</font>
+
+					<g id="halls">
+					<rect x="99" y="81" fill="#CFD8DC" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="269" height="824"/>
+					<polygon fill="#CFD8DC" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="946.999,20 368,20 368,905 996,905 
+						996,501.171 	"/>
+				</g>
+				<g id="halls-text">
+					<text transform="matrix(1 0 0 1 211.2158 484.1255)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Фойе</text>
+					<text transform="matrix(1 0 0 1 604.9844 51.3335)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Сарыарка 1</text>
+					<text transform="matrix(1 0 0 1 689.4014 515)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Сарыарка 2</text>
+					<text transform="matrix(1 0 0 1 689.4014 726.5)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Сарыарка 3</text>
+				</g>
+				<g id="external-text">
+					<text transform="matrix(1 0 0 1 48.543 112.3306)" fill="#B0BEC5" font-family="'Roboto-Bold'" font-size="18">WC</text>
+					<text transform="matrix(1 0 0 1 10.3789 734.291)" fill="#B0BEC5" font-family="'Roboto-Bold'" font-size="18">Ресторан</text>
+				</g>
+				<g id="rooms">
+					<rect x="99" y="786" fill="#B0BEC5" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="111" height="119"/>
+					<rect x="210" y="786" fill="#B0BEC5" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="158.125" height="119"/>
+					<rect x="368" y="786" fill="#B0BEC5" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="108.667" height="119"/>
+					
+						<rect x="368" y="666.126" fill="#B0BEC5" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="108.667" height="119"/>
+					<rect x="187" y="81" fill="#B0BEC5" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" width="181" height="97"/>
+				</g>
+				<g id="rooms_text">
+					<text transform="matrix(1 0 0 1 236.8291 131.6636)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Гардероб</text>
+					<g>
+						<text transform="matrix(1 0 0 1 268.1572 824.791)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Зона</tspan><tspan x="-32.69" y="21.601" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">регистрации</tspan></text>
+						<text transform="matrix(1 0 0 1 256.3096 877.791)" fill="#FFFFFF" font-family="'Roboto-Bold'" font-size="18">Гл вход</text>
+					</g>
+				</g>
+				<g id="columns">
+					<polygon fill="#FFFFFF" points="514,430 514,472.25 499.75,472.25 499.75,456 368,456 368,442 499.75,442 499.75,430 	"/>
+					<polygon fill="#FFFFFF" points="861,430 861,472.25 875.25,472.25 875.25,456 991.4,456 989.975,442 875.25,442 875.25,430 	"/>
+					<polygon fill="#FFFFFF" points="861,649.501 861,691.751 875.25,691.751 875.25,675.501 996,675.501 996,661.501 875.25,661.501 
+						875.25,649.501 	"/>
+					<rect x="619.25" y="430" fill="#FFFFFF" width="14.25" height="42.25"/>
+					<rect x="619.25" y="652.001" fill="#FFFFFF" width="14.25" height="42.25"/>
+					<rect x="496" y="652.001" fill="#FFFFFF" width="14.25" height="42.25"/>
+					<rect x="741.875" y="652.001" fill="#FFFFFF" width="14.25" height="42.25"/>
+					<rect x="741.875" y="430.167" fill="#FFFFFF" width="14.25" height="42.25"/>
+					<rect x="205.917" y="283.292" fill="#FFFFFF" width="10" height="10"/>
+					<rect x="205.917" y="359.126" fill="#FFFFFF" width="10" height="10"/>
+					<rect x="205.917" y="434.126" fill="#FFFFFF" width="10" height="10"/>
+					<rect x="205.917" y="509" fill="#FFFFFF" width="10" height="10"/>
+					<rect x="205.917" y="585.563" fill="#FFFFFF" width="10" height="10"/>
+					<rect x="205.917" y="661.126" fill="#FFFFFF" width="10" height="10"/>
+				</g>
+				<g id="entrances">
+					<g>
+						<path fill="#CFD8DC" d="M101,107.33v17H84C84,114.94,91.61,107.33,101,107.33z"/>
+						<path fill="#CFD8DC" d="M101,107.33v-17H84C84,99.72,91.61,107.33,101,107.33z"/>
+					</g>
+					<g>
+						<path fill="#CFD8DC" d="M101,231.664v17H84C84,239.273,91.61,231.664,101,231.664z"/>
+						<path fill="#CFD8DC" d="M101,231.664v-17H84C84,224.054,91.61,231.664,101,231.664z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M367.625,231.664v17h-17C350.625,239.273,358.235,231.664,367.625,231.664z"/>
+						<path fill="#FFFFFF" d="M367.625,231.664v-17h-17C350.625,224.054,358.235,231.664,367.625,231.664z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M367.625,379.126v17h-17C350.625,386.736,358.235,379.126,367.625,379.126z"/>
+						<path fill="#FFFFFF" d="M367.625,379.126v-17h-17C350.625,371.516,358.235,379.126,367.625,379.126z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M367.625,594.563v17h-17C350.625,602.174,358.235,594.563,367.625,594.563z"/>
+						<path fill="#FFFFFF" d="M367.625,594.563v-17h-17C350.625,586.953,358.235,594.563,367.625,594.563z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M99,729.626v-17h17C116,722.016,108.39,729.626,99,729.626z"/>
+						<path fill="#FFFFFF" d="M99,729.626v17h17C116,737.236,108.39,729.626,99,729.626z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M367.752,729.624v17h-17C350.752,737.234,358.362,729.624,367.752,729.624z"/>
+						<path fill="#FFFFFF" d="M367.752,729.624v-17h-17C350.752,722.014,358.362,729.624,367.752,729.624z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M323.752,786h17v17C331.362,803,323.752,795.391,323.752,786z"/>
+						<path fill="#FFFFFF" d="M323.752,786h-17v17C316.142,803,323.752,795.391,323.752,786z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M251,786h17v17C258.61,803,251,795.391,251,786z"/>
+						<path fill="#FFFFFF" d="M251,786h-17v17C243.39,803,251,795.391,251,786z"/>
+					</g>
+					<g>
+						<path fill="#B0BEC5" d="M323.752,903h17v17C331.362,920,323.752,912.391,323.752,903z"/>
+						<path fill="#B0BEC5" d="M323.752,903h-17v17C316.142,920,323.752,912.391,323.752,903z"/>
+					</g>
+					<g>
+						<path fill="#B0BEC5" d="M251,903h17v17C258.61,920,251,912.391,251,903z"/>
+						<path fill="#B0BEC5" d="M251,903h-17v17C243.39,920,251,912.391,251,903z"/>
+					</g>
+					<g>
+						<path fill="#FFFFFF" d="M476.667,729.624v17h-17C459.667,737.234,467.276,729.624,476.667,729.624z"/>
+						<path fill="#FFFFFF" d="M476.667,729.624v-17h-17C459.667,722.014,467.276,729.624,476.667,729.624z"/>
+					</g>
+				</g>
+				<g id="other">
+					
+						<rect id="cafe_2_" x="885" y="601.126" fill="#B0BEC5" stroke="#BDCCD4" stroke-width="2" stroke-miterlimit="10" width="100" height="60"/>
+					
+						<rect id="defile_2_" x="685" y="531.126" fill="#B0BEC5" stroke="#BDCCD4" stroke-width="2" stroke-miterlimit="10" width="200" height="60"/>
+					
+						<rect id="model_room_2_" x="885" y="521.126" fill="#B0BEC5" stroke="#BDCCD4" stroke-width="2" stroke-miterlimit="10" width="100" height="80"/>
+				</g>
+				<g id="other-text">
+					<text transform="matrix(1 0 0 1 718.8555 565.584)" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">Подиум для дефиле</text>
+					<text transform="matrix(1 0 0 1 906.04 556.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">Комната</tspan><tspan x="-13.607" y="16.801" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">для моделей</tspan></text>
+				</g>
+				<g id="boxes">
+					<g class="sale">
+						<rect id="F01_2" x="104" y="264.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 281.2925)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F01</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F02_2" x="104" y="304.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 122.0371 332.2925)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F02</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F03_2" x="104" y="364.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 382.0625)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F03</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="F04_2" x="104" y="404.126" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 421.8125)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F04</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="F05_2" x="104" y="444.126" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 462.3125)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F05</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="F06_2" x="104" y="484.126" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 502)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F06</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F07_2" x="104" y="524.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 122.0371 541.5635)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F07</tspan><tspan x="1.06" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F08_2" x="104" y="564.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 122.0371 592.293)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F08</tspan><tspan x="1.06" y="16.799" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F09_2" x="104" y="625" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 122.0371 652.1875)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F09</tspan><tspan x="1.06" y="16.801" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F10_2" x="283" y="434.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 311.0371 461.313)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F10</tspan><tspan x="-2.882" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F11_2" x="283" y="494.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 311.04 522.127)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F11</tspan><tspan x="-2.885" y="16.799" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F12_2" x="220" y="261" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="80"/>
+						<text transform="matrix(1 0 0 1 238.04 298.6885)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F12</tspan><tspan x="-2.885" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="F13_2" x="220" y="615" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="80"/>
+						<text transform="matrix(1 0 0 1 238.04 652.1875)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">F13</tspan><tspan x="-2.885" y="16.799" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S101_2" x="469.009" y="81" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.983" height="60"/>
+						<text transform="matrix(1 0 0 1 472.8096 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S101</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S102_2" x="508.992" y="81" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.983" height="60"/>
+						<text transform="matrix(1 0 0 1 512.8184 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S102</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S103_2" x="548.976" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 552.8008 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S103</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S104_2" x="588.958" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 592.7588 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S104</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S105_2" x="628.94" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.984" height="60"/>
+						<text transform="matrix(1 0 0 1 632.7412 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S105</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S106_2" x="668.925" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 672.7256 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S106</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S107_2" x="708.907" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 712.708 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S107</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S108_2" x="748.89" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 752.6904 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S108</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S109_2" x="788.872" y="81" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 792.6729 108.3335)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S109</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S110_2_" x="449" y="201" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 472.8096 228.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S110</tspan><tspan x="1.346" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S111_2" x="529.009" y="201" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 532.8125 228.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S111</tspan><tspan x="5.284" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S112_2_" x="568.966" y="201" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="39.982" height="60"/>
+						<text transform="matrix(1 0 0 1 572.7695 228.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S112</tspan><tspan x="5.284" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S113_2" x="608.932" y="201" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 632.7441 228.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S113</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S114_2" x="741" y="200" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="80"/>
+						<text transform="matrix(1 0 0 1 764.8125 237.333)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S114</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">16 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S115_2" x="875" y="141.435" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 898.8125 168.4346)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S115</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S116_2" x="875" y="202" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 898.8125 228.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S116</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S117_2" x="875" y="262" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 898.8125 288.5835)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S117</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S118_2" x="875" y="322" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="60"/>
+						<text transform="matrix(1 0 0 1 908.8125 348.9165)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S118</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">15 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S119_2" x="875" y="382" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="60"/>
+						<text transform="matrix(1 0 0 1 908.8125 409.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S119</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">15 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S120_2" x="438" y="382" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 451.8096 409.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S120</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S121_2" x="514" y="382" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 527.8125 409.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S121</tspan><tspan x="5.284" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S122_2" x="574" y="382" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 577.8125 409.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S122</tspan><tspan x="5.284" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S123_2" x="633" y="321" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 656.8125 348.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S123</tspan><tspan x="1.343" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S124_2" x="713" y="321" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 726.8125 348.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S124</tspan><tspan x="5.284" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S201_2" x="373" y="461.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 396.8096 488.916)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S201</tspan><tspan x="1.346" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S202_2" x="453" y="461.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 456.8096 488.916)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S202</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S203_2" x="514" y="461.126" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 527.8096 488.916)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S203</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S204_2" x="574" y="461.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 577.8096 488.916)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S204</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S205_2" x="885" y="461.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="60"/>
+						<text transform="matrix(1 0 0 1 918.8096 488.9165)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S205</tspan><tspan x="1.346" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">15 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S206_2" x="373" y="621.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 386.8096 638.626)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S206</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S207_2" x="433" y="621.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 446.8096 638.626)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S207</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S208_2" x="514" y="601.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 527.8096 628.416)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S208</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S209_2" x="574" y="601.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 577.8096 628.416)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S209</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S301_2" x="481.667" y="780.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 505.4756 807.667)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S301</tspan><tspan x="1.346" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S302_2" x="481.667" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="80" height="60"/>
+						<text transform="matrix(1 0 0 1 505.4756 867.667)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S302</tspan><tspan x="1.346" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">12 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S303_2" x="594" y="732" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 607.8096 759.167)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S303</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S304_2" x="655" y="742" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 668.8096 759.167)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S304</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S305_2" x="715" y="742" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="40"/>
+						<text transform="matrix(1 0 0 1 728.8096 759.167)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S305</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S306_2" x="607.166" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 610.9756 867.667)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S306</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S307_2" x="647.166" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 650.9756 867.667)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S307</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S308_2" x="687.166" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 690.9756 867.667)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S308</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S309_2" x="727.166" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="40" height="60"/>
+						<text transform="matrix(1 0 0 1 730.9756 867.5)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S309</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">6 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S310_2" x="767.166" y="840.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="60" height="60"/>
+						<text transform="matrix(1 0 0 1 780.9756 867.5)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S310</tspan><tspan x="5.287" y="16.8" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">9 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S311_2" x="885" y="680.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="60"/>
+						<text transform="matrix(1 0 0 1 918.8125 706.916)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S311</tspan><tspan x="1.343" y="16.801" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">15 м</tspan></text>
+					</g>
+					<g class="sold">
+						<rect id="S312_2" x="885" y="740.126" fill="#B39DDB" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="80"/>
+						<text transform="matrix(1 0 0 1 918.8125 777.25)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S312</tspan><tspan x="1.34" y="16.799" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">20 м</tspan></text>
+					</g>
+					<g class="sale">
+						<rect id="S313_2" x="885" y="820.126" fill="#673AB7" stroke="#CFD8DC" stroke-width="2" stroke-miterlimit="10" width="100" height="80"/>
+						<text transform="matrix(1 0 0 1 918.8125 857.584)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">S313</tspan><tspan x="1.34" y="16.799" fill="#FFFFFF" font-family="'Roboto-Regular'" font-size="14">20 м</tspan></text>
+					</g>
+				</g>
+
+				<g id="coffee">
+					<g>
+						<circle fill="#F48FB1" cx="547.5" cy="322" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M553.625,315.563v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M557.75,326.104v0.333c0,1.104-1.529,2-3.416,2h-13.668c-1.887,0-3.416-0.896-3.416-2v-0.333"/>
+							<path fill="#FFFFFF" d="M553.625,316.763c1.269,0,2.3,1.032,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.032-2.3-2.3
+								S552.356,316.763,553.625,316.763 M553.625,315.563c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S555.559,315.563,553.625,315.563L553.625,315.563z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="429" cy="322" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M435.125,315.563v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M439.25,326.104v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M435.125,316.763c1.269,0,2.3,1.032,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.032-2.3-2.3
+								S433.856,316.763,435.125,316.763 M435.125,315.563c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S437.059,315.563,435.125,315.563L435.125,315.563z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="345" cy="303.126" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M351.125,296.688v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M355.25,307.23v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M351.125,297.889c1.269,0,2.3,1.032,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.032-2.3-2.3
+								S349.856,297.889,351.125,297.889 M351.125,296.688c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S353.059,296.688,351.125,296.688L351.125,296.688z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="218" cy="393" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M224.125,386.563v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M228.25,397.104v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M224.125,387.763c1.269,0,2.3,1.032,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.032-2.3-2.3
+								S222.856,387.763,224.125,387.763 M224.125,386.563c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S226.059,386.563,224.125,386.563L224.125,386.563z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="218" cy="543.126" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M224.125,536.688v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M228.25,547.23v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M224.125,537.889c1.269,0,2.3,1.031,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.031-2.3-2.3
+								S222.856,537.889,224.125,537.889 M224.125,536.688c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S226.059,536.688,224.125,536.688L224.125,536.688z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="449" cy="567.563" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M455.125,561.126v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M459.25,571.668v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M455.125,562.326c1.269,0,2.3,1.031,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.031-2.3-2.3
+								S453.856,562.326,455.125,562.326 M455.125,561.126c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S457.059,561.126,455.125,561.126L455.125,561.126z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="346.125" cy="663.126" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M352.25,656.688v8c0,1.104-0.895,2-2,2h-8c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M356.375,667.23v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M352.25,657.889c1.269,0,2.3,1.031,2.3,2.3s-1.031,2.3-2.3,2.3s-2.3-1.031-2.3-2.3
+								S350.982,657.889,352.25,657.889 M352.25,656.688c-1.933,0-3.5,1.567-3.5,3.5s1.567,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S354.184,656.688,352.25,656.688L352.25,656.688z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="719" cy="672.563" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M725.125,666.126v8c0,1.104-0.895,2-2,2h-7.999c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M729.25,676.668v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M725.125,667.326c1.27,0,2.301,1.031,2.301,2.3s-1.031,2.3-2.301,2.3c-1.268,0-2.299-1.031-2.299-2.3
+								S723.857,667.326,725.125,667.326 M725.125,666.126c-1.932,0-3.5,1.567-3.5,3.5s1.568,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S727.059,666.126,725.125,666.126L725.125,666.126z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="838" cy="672.563" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M844.125,666.126v8c0,1.104-0.895,2-2,2h-7.999c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M848.25,676.668v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M844.125,667.326c1.27,0,2.301,1.031,2.301,2.3s-1.031,2.3-2.301,2.3c-1.268,0-2.299-1.031-2.299-2.3
+								S842.857,667.326,844.125,667.326 M844.125,666.126c-1.932,0-3.5,1.567-3.5,3.5s1.568,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S846.059,666.126,844.125,666.126L844.125,666.126z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="838" cy="450.729" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M844.125,444.292v8c0,1.104-0.895,2-2,2h-7.999c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M848.25,454.834v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M844.125,445.492c1.27,0,2.301,1.031,2.301,2.3s-1.031,2.3-2.301,2.3c-1.268,0-2.299-1.031-2.299-2.3
+								S842.857,445.492,844.125,445.492 M844.125,444.292c-1.932,0-3.5,1.567-3.5,3.5s1.568,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S846.059,444.292,844.125,444.292L844.125,444.292z"/>
+						</g>
+					</g>
+					<g>
+						<circle fill="#F48FB1" cx="709.488" cy="450.729" r="20"/>
+						<g>
+							<path fill="#FFFFFF" d="M715.613,444.292v8c0,1.104-0.895,2-2,2h-7.999c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M719.738,454.834v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M715.613,445.492c1.27,0,2.301,1.031,2.301,2.3s-1.031,2.3-2.301,2.3c-1.268,0-2.299-1.031-2.299-2.3
+								S714.346,445.492,715.613,445.492 M715.613,444.292c-1.932,0-3.5,1.567-3.5,3.5s1.568,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S717.547,444.292,715.613,444.292L715.613,444.292z"/>
+						</g>
+					</g>
+					<g>
+						<g>
+							<path fill="#FFFFFF" d="M941.125,624.688v8c0,1.104-0.895,2-2,2h-7.999c-1.104,0-2-0.896-2-2v-8"/>
+							<path fill="#FFFFFF" d="M945.25,635.23v0.333c0,1.104-1.529,2-3.416,2h-13.667c-1.887,0-3.417-0.896-3.417-2v-0.333"/>
+							<path fill="#FFFFFF" d="M941.125,625.889c1.27,0,2.301,1.031,2.301,2.3s-1.031,2.3-2.301,2.3c-1.268,0-2.299-1.031-2.299-2.3
+								S939.857,625.889,941.125,625.889 M941.125,624.688c-1.932,0-3.5,1.567-3.5,3.5s1.568,3.5,3.5,3.5c1.934,0,3.5-1.567,3.5-3.5
+								S943.059,624.688,941.125,624.688L941.125,624.688z"/>
+						</g>
+					</g>
+				</g>
+				</svg>
+				
+				<!--p>
+					6м х 44шт = 264<br>
+					9м х 1шт = 9<br>
+					12м х 2шт = 24<br>
+					15м х 3шт = 45<br>
+					20м х 2шт = 40<br><br>
+					52 стенда площадью 382 кв м
+				</p-->
+			</div>
+		</div>
+		
+		<div id="speakers">
+			<div class="wrapper">
+				<h3>Спикеры</h3>
+				<figure id="spinner">
+					<img>
+					<div id="speaker1" class="speaker">
+						<img src="../img/photo/speaker1.png" alt="">
+						<div class="speaker-about">
+							<h5>Камерон</h5>
+							<h4>Сойер</h4>
+							<p>Юрист и девелопер. Камерон Сойер имеет степень бакалавра наук с отличием Вандербильтского Университета (Vanderbilt University) и степень доктора юриспруденции Мичиганского ScentAir</p>
+						</div>
+					</div>
+					</img>
+					<img src="../img/photo/speaker2.png" alt="">
+					<img src="../img/photo/speaker3.png" alt="">
+					<img src="../img/photo/speaker4.png" alt="">
+					<img src="../img/photo/speaker5.png" alt="">
+					<img src="../img/photo/speaker6.png" alt="">
+					<img src="../img/photo/speaker7.png" alt="">
+					<img src="../img/photo/speaker8.png" alt="">
+				</figure>
+				<a class="rotate left" onclick="galleryspin('')"><i class="fa fa-angle-left"></i></a>
+				<a class="rotate right" onclick="galleryspin('-')"><i class="fa fa-angle-right"></i></a>
+			</div>
+		</div>
+		
+		<div id="comments" class="next inverse">
+			<div class="wrapper">
+				<h3>Наша аудитория о нас</h3>
+				<div class="slider">
+					<div id="comment1" class="slide active">
+						<div class="commentator left">
+							<img src="../img/photo/comment1.jpg">
+							<h4>
+								Максим Карбасникофф
+								<span>(Maxim Karbasnikoff)</span>
+							</h4>
+							<p>партнер, руководитель отдела торговой недвижимости Cushman & Wakefield, Москва, Россия</p>
+						</div>
+						<div class="comment">
+							<p class="display"><span>В настоящее время рынок Казахстана продолжает активно развиваться,</span> это связано как с ростом качественного предложения, так и <span>с желанием международных ритейлеров укреплять свои позиции на развивающихся рынках, ярким представителем которых является рынок Казахстана.</span> Тем не менее, это относительно небольшой рынок, где маленькие торговые центры должны существенно отличаться от конкурентов, чтобы быть успешными (сегменты премиум и люкс в Essentai Mall) , должны уделять особое внимание развлекательному аспекту (Khan Shatir) и постоянно адаптироваться под меняющиеся предпочтения потребителей (разные фазы MegaMall).<br><br>
+							<span>Рынки стран СНГ являются очень привлекательными для международных ритейлеров,</span> так как, во-первых, <span>им удалось избежать сильной стагнации,</span> в отличие от рынков Западной Европы, а во-вторых, потому что <span>экономика этих стран</span> в настоящий момент времени находится <span>на подъеме.</span> Эти страны продолжают укреплять свои позиции: Казахстан в 2013 году среди стран Центральной Азии, Восточной Европы и СНГ занял 11 место, улучшив свои позиции на несколько пунктов.<br><br>
+							Казахстан является одной из самых успешных стран по степени развития международной торговли с Европой, Азией и Ближним Востоком и в будущем должен удерживать эту позицию. Ритейлеры из Европы, и не только России, должны заинтересоваться перспективами развития своих сетей в этой стране.</p>
+						</div>
+					</div>
+					<div id="comment2" class="slide">
+						<div class="commentator left">
+							<img src="../img/photo/comment2.jpg">
+							<h4>
+								Натали Депетро
+								<span>(Nathalie Depetro)</span>
+							</h4>
+							<p>директор выставки MAPIC, Канны, Франция</p>
+						</div>
+						<div class="comment">
+							<p class="display">Первые компании из Казахстана, принявшие участие в выставке MAPIC, приехали к нам в 2005 году. Это были девелоперские компании Eurasia Red и TS Development, которые хотели показать новые проекты, новые  торговые центры, которые они запускают. Несколько лет спустя сеть торговых центров «Мега» также присоединилась и стала посещать Канны. <span>Участие казахстанских компаний дает прекрасную возможность представить международному сообществу ритейлеров, девелоперов коммерческой недвижимости новую территорию для развития. Ритейлеры все еще находятся в поисках новых рынков для расширения. И мы надеемся, что присутствие Казахстана на MAPIC возрастет еще больше.</span></p>
+						</div>
+					</div>
+					<div id="comment3" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment3.jpg">
+							<h4>
+								Бильге Каган<br>
+								<span>(Bilge Kağan)</span>
+							</h4>
+							<p>консультант по экостроительству и управлению проектами, SPC Solutions, Москва, Россия</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Эксперт в области экологического строительства, управления строительными проектами с опытом консультирования в секторе коммерческой недвижимости свыше 20 лет.  Опыт работы в московском офисе Ernst & Young, с 2011 по 2013 гг.  заместитель генерального директора крупного публичного траста Halk Real Estate Investment Trust (Стамбул, Турция).  Аккредитованный специалист LEED (LEED AP), лицензированный международный оценщик по стандартам BREEAM, член Королевского института дипломированных оценщиков (MRICS), член Американского общества инженеров-строителей (ASCE).</p>
+							<p class="display">В первую очередь, хотел бы сказать, что я очень рад находиться в Астане на первой в Казахстане конференции, посвященной коммерческой недвижимости. Это великолепная идея, которая, на мой взгляд, должна реализовываться на ежегодной основе. <span>Коммерческая недвижимость Казахстана</span> находится в начале своего пути, вместе с тем, эта область <span>имеет прекрасные возможности для развития и роста:</span> территорию, поддержку государства, хорошую инфраструктуру, а также одну из важных составляющих – достаточные финансовые ресурсы для реализации проектов. Я желаю вам только успехов и считаю, что эта конференция  - прекрасная возможность для получения знаний для всех участников рынка.</p>
+						</div>
+					</div>
+					<div id="comment4" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment4.jpg">
+							<h4>Эльза Розенталь</h4>
+							<p>коммерческий  директор  ГК «ARCADA», Астана, Казахстан, приглашена на работу в Казахстан из России</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>С 2003 года работает на российском рынке коммерческой недвижимости. Опыт работы в разработке и реализации маркетинговых проектов, бизнес-процессов, брокериджа, консалтинга и продаж в сфере недвижимости более чем в 17 городах России.</p>
+							<p class="display">Такая площадка открывает новых девелоперов и инвесторов, и дает очень много тем для размышления самим участникам. Поэтому проведение подобного форума необходимо рынку. И проводить может быть нужно даже чаще, чем задумано организаторами, или может быть в каких-то других форматах, более узкой направленности, локальные, точечные.</p>
+						</div>
+					</div>
+					<div id="comment5" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment5.jpg">
+							<h4>Болат Кожагельдинов</h4>
+							<p>директор компании «Теплый Дом 2012», Астана, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Выпускник Черногорского Горного Университета по специальности «Разработка месторождений, эксплуатационное бурение скважин на нефть и газ» и Центрально-Азиатского Университета по специальности «Юриспруденция». Опыт работы в различных крупных и международных компаниях, в том числе ОАО "Хантымансийск-геофизика», АО «Жезказгангеология», ОАО «Корпорация Казахмыс».</p>
+							<p class="display"><span>Нужное мероприятие, где  мы получаем опыт, общение и знакомство с нашими потенциальными клиентами.</span> Рынок Астаны большой, спрос формирует предложение. Для нашей компании это возможность показать наши возможности и наши новые технологии, узнать наших потенциальных клиентов и их мнение.</p>
+						</div>
+					</div>
+					<div id="comment6" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment6.jpg">
+							<h4>Шухрат Адилов</h4>
+							<p>собственник и директор  «Mobil Realty Мanagement Сompany», Астана, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Выпускник Московский Государственный Университет им. Ломоносова (г. Москва), а также Евразийского Государственного Университета им. Л. Гумилева. Ранее работал директором департамента по работе с клиентами в странах СНГ ЗАО «Брокерский дом «AG Capital» (г. Москва) и Председателем Правления АО «Брокерская Компания Астана Финанс» (г. Алматы).</p>
+							<p class="display">Благодаря первой проведенной Неделе Коммерческой Недвижимости стало понятно, что рынок давным-давно созрел к подобной дискуссии, к подобной диалоговой площадке. Здесь был затронут настолько широкий круг вопросов, начиная от девелопинга, управления зданиями, взаимодействия с поставщиками, клиентами, государственного регулирования, страхования и финансовых фондов недвижимости. <span>Лично для меня это было очень полезно. Потому что за эти два дня я узнал очень много и познакомился со многими людьми.</span> Такие диалоговые площадки, зоны выставки дают возможность заявить о себе и своих амбициях.</p>
+						</div>
+					</div>
+					<div id="comment7" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment7.jpg">
+							<h4>Жулдыз Какенов</h4>
+							<p>генеральный директор управляющей компании «Marden Realty», Астана, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Сертифицированный участник Гильдии Управляющих и Девелоперов, секция «Управление коммерческой недвижимостью», г. Санкт-Петербург, РФ, слушатель практического курса «Кайдзен – бережливое управление» в Japan International Cooperation Agency (JICA) г. Киото, Япония. С 2009 по 2011 гг. прошел обучение и успешно защитил диплом Менеджера-Профессионала в Бизнес школе Открытого университета Великобритании.</p>
+							<p class="display"><span>Первый форум в коммерческой недвижимости - это очень серьезное событие.</span> Здесь собрались очень сильные игроки рынка: управляющие и сервисные компании, девелоперы, проектировщики. Такая площадка, как Commercial Real Estate Week позволяет нам всем обмениваться опытом, информацией, знаниями, консолидировать общество и ставить новые задачи перед собой. Сейчас на наш рынок заходят иностранные компании, именитые, с брендом. Поэтому я думаю,  мы могли бы на CREW продвигать наши отечественные компании, раскручивать наши бренды, то есть показывать, кто мы такие, как мы умеем профессионально работать, что у нас есть в управленческом арсенале и чтобы собственники коммерческой недвижимости видели, что мы профессионально формируем рынок.</p>
+						</div>
+					</div>
+					<div id="comment8" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment8.jpg">
+							<h4>
+								Лукаш Сковроньски<br>
+								<span>(Łukasz Skowroński)</span>
+							</h4>
+							<p>коммерческий директор компании «Global Development», Алматы, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Выпускник Краковского университета экономики, имеет степень магистра. Проработал на польском и болгарском рынке недвижимости с 2006 года, в таких компаниях, как Home Broker и Metrohouse.</p>
+							<p class="display">Отрадно, что в Казахстане развитие рынка интересует всех его игроков. Я рад, что и медиа ресурсы помогают этим мероприятиям и очень доволен тем, что игрокам рынка коммерческой недвижимости - <span>и ритейлерам, и представителям торговых домов,</span> бизнес центров и консультантам <span>выпала возможность встретиться в одном месте.</span> Уверен, что на следующий год будет еще больше участников и компаний. Надеюсь, что и иностранных гостей тоже, так как казахстанский рынок находят привлекательным иностранные инвесторы.</p>
+						</div>
+					</div>
+					<div id="comment9" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment9.jpg">
+							<h4>Дончо Пенчев</h4>
+							<p>управляющий партнер компании «Office Solutions» (представительство американской корпорации Steelcase), Алматы, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Имеет 5 лет опыта в области управления корпоративными и проектными продажами. После окончания магистратур ICN(Франция), МГИМО (Россия), начал свою карьеру во Франции в CreditAgricoleCIB. Принимал непосредственное участие в реализации проектов ТШО, Банк Центр Кредит, Сбербанк России и другие.</p>
+							<p class="display">Это были интересные два дня. И нужно учесть, что это проходит в Казахстане в первый раз. Я думаю, что формат будет еще расширяться и станет еще более насыщенным.  Поскольку мы очень сильно верим в стиль пространства, мы бы хотели, чтобы было больше акцентов на эту тему. И, думаю, уже <span>в следующем году мы поднимем  уровень дискуссий еще выше.</span></p>
+						</div>
+					</div>
+					<div id="comment10" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment10.jpg">
+							<h4>
+								Чавьер Вильалта<br>
+								<span>(Xavier Vilalta)</span>
+							</h4>
+							<p>архитектор, собственник компании «XVA Architect», Барселона, Испания</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Испанский архитектор и урбанист, основным принципом которого является «мы любим природу и заботимся о людях». Имеет награду в ежегодной Энергетической Выставке в Болонье (Италия) в 2009 и 2010 гг.; был признан единственным испанцем, которому присуждена награда TED (частный некоммерческий фонд в США, известный, прежде всего проведением ежегодных конференций). Награжден Премией Международного сотрудничества Каталонской Ассоциацией Архитекторов и Поощрительной премией в Ежегодной Выставке «Современная Атланта», США.</p>
+							<p class="display">Я очень рад находится здесь и считаю, что <span>мероприятие организовано на высоком уровне,</span> учитывая, что оно проводится в первый раз. Астана очень молодой город, который нуждается в развитии и у которого есть для этого все возможности. Все мои проекты очень дороги мне, как для архитектора. Думаю, для меня было бы интересно поработать в Астане, я люблю перемены и с удовольствием поработал бы над одним из проектов для вашего города. Я желаю вашей платформе развития и интереса со стороны профессионалов данной индустрии.</p>
+						</div>
+					</div>
+					<div id="comment11" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment11.jpg">
+							<h4>Дмитрий Ленгардт</h4>
+							<p>генеральный директор компании «Nayada», Алматы, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Более 10 лет Дмитрий работает на рынке коммерческой недвижимости Казахстана, занимаясь вопросами офисных помещений, дизайна интерьера офисных пространств.</p>
+							<p class="display">Вы знаете, в первый раз я был на подобном ивенте лет десять назад. Когда все это начинало развиваться в России, в Москве. И уже тогда я подумал, почему бы нам не <span>сделать такую площадку в Казахстане?</span> К счастью, появилась и наша казахстанская команда, и я рад, что у них тоже возникла такая идея. Надеюсь, что этот первый опыт, какой бы он ни был, даст и положительные эмоции, и тему для размышления в будущем, и покажет в каком направлении нужно двигать данный формат встречи игроков. Я надеюсь, что у нас в стране будет своя премия, которая отразит реалии коммерческой недвижимости – как торговой, так и  офисной. <span>Могу сказать только - отличное начало.</span></p>
+						</div>
+					</div>
+					<div id="comment12" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment12.jpg">
+							<h4>Светлана Зуева</h4>
+							<p>генеральный директор ООО «Индустрия недвижимости», Москва, Россия</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Более 10 лет работает на рынке коммерческой недвижимости. В список ее проектов входят ТРЦ «Альтаир» 60 000 кв.м., имущественный комплекс офисной недвижимости 46 000 кв.м., имущественный комплекс офисной, складкой и индустриальной недвижимости 65 000 кв.м. и другие. Параллельно основной работе проводит семинары по теме: «Управление коммерческой недвижимостью» на различных площадках Москвы.</p>
+							<p class="display"><span>Я думаю, что данное мероприятие будет проводиться и должно проводиться ежегодно. Это площадка, где профессиональные участники рынка могут обменяться опытом, получить ответы на вопросы, которые их интересуют.</span> А мы, со своей стороны, как компании, которые уже работали на российском рынке, и компании, которые прошли уже те проблемы и знают ответы на вопросы, конечно готовы вам помочь и поделиться опытом, знаниями, и всегда готовы прийти к вам на помощь.</p>
+						</div>
+					</div>
+					<div id="comment13" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment13.jpg">
+							<h4>Бахытбек Катен</h4>
+							<p>генеральный директор Aristan Group, Алматы, Казахстан</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Работал в ведущих казахстанских и зарубежных компаниях – Colliers, MAG Group, NAI Global.</p>
+							<p class="display">Практически все участники мероприятия согласились в одном - в нынешнее время Казахстан активно развивается, привлекает профессионалов своего дела и держит курс на развитие за рубежом. Российские специалисты сравнили нынешнее положение Казахстана в сфере commercial real estate с положением рынка России 5-летней давности, одновременно отмечая, что <span>потенциала для активного развития казахстанского рынка коммерческой недвижимости и скорейшего становления его твердой почвы предостаточно.</span> Я думаю, что диалоговая площадка CRE Week послужит примером, непосредственно тем инструментом, который нужен для развития и разрешения этих проблем.</p>
+						</div>
+					</div>
+					<div id="comment14" class="slide">
+						<div class="commentator left">
+							<img class="more" src="../img/photo/comment14.jpg">
+							<h4>Олег Альтшуль</h4>
+							<p>исполнительный директор «Fidea Development Group», Астана, Казахстан, приглашен на работу в Казахстан из России</p>
+							<a class="more">Подробнее</a>
+						</div>
+						<div class="comment">
+							<p>Ранее являлся управляющим директором по России и СНГ в компаниях Lactalis (President, Food Master) и DANONE. В компании Jones Lang LaSalle управлял консалтинговым подразделением складских и индустриальных проектов (Россия и СНГ).</p>
+							<p class="display">На мой взгляд,  на текущий момент <span>рынок Казахстана немного недооценен западными и российскими ритейлерами.</span> Поэтому, к сожалению, у нас больше рынок арендаторский, нежели девелоперский. В связи с этим ритейлеры заказывают свою игру - и только большие компании, которые имеют филиальную сеть, главным образом в Астане, в Алмате, в Караганде могут противостоять, скажем так, игре ритейлеров.</p>
+						</div>
+					</div>
+				</div>
+				<div id="comment-navigation" class="center">
+					<button class="toslide active" id="toslide0"/>
+					<button class="toslide passive" id="toslide1"/>
+					<button class="toslide passive" id="toslide2"/>
+					<button class="toslide passive" id="toslide3"/>
+					<button class="toslide passive" id="toslide4"/>
+					<button class="toslide passive" id="toslide5"/>
+					<button class="toslide passive" id="toslide6"/>
+					<button class="toslide passive" id="toslide7"/>
+					<button class="toslide passive" id="toslide8"/>
+					<button class="toslide passive" id="toslide9"/>
+					<button class="toslide passive" id="toslide10"/>
+					<button class="toslide passive" id="toslide11"/>
+					<button class="toslide passive" id="toslide12"/>
+					<button class="toslide passive" id="toslide13"/>
+				</div>
+				<a id="prev_arrow" class="rotate left"><i class="fa fa-angle-left"></i></a>
+				<a id="next_arrow" class="rotate right"><i class="fa fa-angle-right"></i></a>
+			</div>
+		</div>
+		
+		<div id="brands" class="next">
+			<div class="wrapper">
+				<h3>Бренды</h3>
+				
+				<div id="brands-navigation" class="center">
+					<button id="all-button" class="active">Популярные</button>
+					<button id="food-button" class="style bordered">Еда и напитки</button>
+					<button id="electronics-button" class="style bordered">Электроника</button>
+					<button id="jewelery-button" class="style bordered">Драгоценности</button>
+					<button id="sportwear-button" class="style bordered">Спортивная одежда</button>
+					<button id="shoes-button" class="style bordered">Обувь и аксессуары</button>
+					<button id="hotels-button" class="style bordered">Отели</button>
+				</div>
+				
+				<div class="food brand block fifth">
+					<div id="food1"></div>
+				</div>
+				<div class="food brand block fifth">
+					<div id="food2"></div>
+				</div>
+				<div class="food brand block fifth display popular">
+					<div id="food3"></div>
+				</div>
+				<div class="food brand block fifth">
+					<div id="food4"></div>
+				</div>
+				<div class="food brand block fifth display popular">
+					<div id="food5"></div>
+				</div>
+				<div class="food brand block fifth display popular">
+					<div id="food6"></div>
+				</div>
+				<div class="food brand block fifth">
+					<div id="food7"></div>
+				</div>
+				
+				<div class="electronics brand block fifth display popular">
+					<div id="electronics1"></div>
+				</div>
+				<div class="electronics brand block fifth display popular">
+					<div id="electronics2"></div>
+				</div>
+				<div class="electronics brand block fifth display popular">
+					<div id="electronics3"></div>
+				</div>
+				<div class="electronics brand block fifth">
+					<div id="electronics4"></div>
+				</div>
+				
+				<div class="jewelery brand block fifth">
+					<div id="jewelery1"></div>
+				</div>
+				<div class="jewelery brand block fifth">
+					<div id="jewelery2"></div>
+				</div>
+				<div class="jewelery brand block fifth display popular">
+					<div id="jewelery3"></div>
+				</div>
+				<div class="jewelery brand block fifth">
+					<div id="jewelery4"></div>
+				</div>
+				<div class="jewelery brand block fifth display popular">
+					<div id="jewelery5"></div>
+				</div>
+				<div class="jewelery brand block fifth display popular">
+					<div id="jewelery6"></div>
+				</div>
+				<div class="jewelery brand block fifth">
+					<div id="jewelery7"></div>
+				</div>
+				
+				<div class="sportwear brand block fifth display popular">
+					<div id="sportwear1"></div>
+				</div>
+				<div class="sportwear brand block fifth display popular">
+					<div id="sportwear2"></div>
+				</div>
+				<div class="sportwear brand block fifth display popular">
+					<div id="sportwear3"></div>
+				</div>
+				<div class="sportwear brand block fifth">
+					<div id="sportwear4"></div>
+				</div>
+
+				<div class="shoes brand block fifth">
+					<div id="shoes1"></div>
+				</div>
+				<div class="shoes brand block fifth display popular">
+					<div id="shoes2"></div>
+				</div>
+				<div class="shoes brand block fifth">
+					<div id="shoes3"></div>
+				</div>
+				<div class="shoes brand block fifth display popular">
+					<div id="shoes4"></div>
+				</div>
+				<div class="shoes brand block fifth display popular">
+					<div id="shoes5"></div>
+				</div>
+				<div class="shoes brand block fifth">
+					<div id="shoes6"></div>
+				</div>
+				<div class="shoes brand block fifth">
+					<div id="shoes7"></div>
+				</div>
+				<div class="shoes brand block fifth">
+					<div id="shoes8"></div>
+				</div>
+				
+				<div class="hotels brand block fifth">
+					<div id="hotels1"></div>
+				</div>
+				<div class="hotels brand block fifth display popular">
+					<div id="hotels2"></div>
+				</div>
+				<div class="hotels brand block fifth">
+					<div id="hotels3"></div>
+				</div>
+				<div class="hotels brand block fifth display popular">
+					<div id="hotels4"></div>
+				</div>
+				<div class="hotels brand block fifth display popular">
+					<div id="hotels5"></div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="team">
+			<div class="wrapper">
+				<h3>Наша команда</h3>
+				<div class="center">
+					<div id="team1" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Асхат</h5>
+							<h5 class="lastname">Исабеков</h5>
+							<p class="position">директор</p>
+						</div>
+					</div>
+				</div>
+				<div class="center even">
+					<div id="team2" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Асель</h5>
+							<h5 class="lastname">Сулеймен</h5>
+							<p class="position">
+								коммерческий<br>
+								директор
+							</p>
+						</div>
+					</div>
+					<div id="team3" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Марина</h5>
+							<h5 class="lastname">Рабай</h5>
+							<p class="position">
+								менеджер<br>
+								проекта
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="center">
+					<div id="team4" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Надежда</h5>
+							<h5 class="lastname">Манасыпова</h5>
+							<p class="position">
+								руководитель<br>
+								представительства<br>
+								в г.Алматы
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="center even">
+					<div id="team5" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Алия</h5>
+							<h5 class="lastname">Серикбаева</h5>
+							<p class="position">
+								главный редактор<br>
+								cre-kazakhstan.kz<br>
+								и retailer.kz
+							</p>
+						</div>
+					</div>
+					<div id="team6" class="avatar">
+						<div class="overlay">
+							<h6 class="name">Марат</h5>
+							<h5 class="lastname">Есенаманов</h5>
+							<p class="position">арт-директор</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="partners">
+			<div class="wrapper">
+				<h3>Партнеры</h3>
+				<div class="line">
+					<div class="block third">
+						<div id="partner1" class="partner"><a href="http://retailer.kz" target="_blank"></a></div>
+					</div>
+					<div class="block third">
+						<div id="partner2" class="partner"><a href="http://cre-kazakhstan.kz" target="_blank"></a></div>
+					</div>
+					<div class="block third">
+						<div id="partner3" class="partner"><a href="http://baytakdala.kz" target="_blank"></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="questions" class="inverse">
+			<div class="wrapper">
+				<h3>Остались вопросы?</h3>
+			</div>
+		</div>
+		
+		<div id="request" class="next">
+			<div class="wrapper">
+				<div class="third left">
+					<div class="center">
+						<input id="request-name" class="line edit" placeholder="Ваше имя">
+						<input id="request-email" class="line edit" placeholder="Ваш e-mail">
+						<textarea id="request-message" class="line edit" placeholder="Ваш вопрос"></textarea>
+						<button id="request-button" class="line">Задать вопрос</button>
+					</div>
+				</div>
+				<div class="two-third right">
+					<h4>Вы можете обратиться к нам по следующим вопросам:</h4>
+					<p>
+						<span>
+							Выступление: <strong>speech@cre-week.kz</strong><br>
+							Участие в выставке: <strong>exhibition@cre-week.kz</strong><br>
+							Спонсорское участие: <strong>sponsor@cre-week.kz</strong><br>
+							Делегатское участие и регистрация: <strong>delegat@cre-week.kz</strong><br>
+							Информационное партнерство: <strong>media@cre-week.kz</strong><br>
+						</span>
+					</p>
+					<h4>Вы можете связаться с нами по следующим телефонам:</h4>
+					<p class="phone">
+						+7 (7172)<span> 787-328, </span>+7 (7172)<span> 787-039, </span>+7 (7172)<span> 787-352</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<h3>Место проведения мероприятия</h3>
+		<div id="map" style="height:500px;">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.2477049330123!2d71.41239370902964!3d51.1592225919628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb243dc647185f4f7!2sRadisson+Hotel%2C+Astana!5e0!3m2!1sru!2s!4v1407511668224" width="100%" height="600" frameborder="0" style="border:0" scrollwheel="false"></iframe>
+		</div>
+		
+		<footer>
+			<div class="wrapper">
+				<div class="half left">
+					<p style="color: white">© Неделя коммерческой недвижимости CREW 2014</p>
+				</div>
+				<div class="half right">
+					<p style="color: white; text-align: right">Разработка сайта: <a style="color: white" href="http://handsguru.kz">handsGuru.kz</a></p>
+				</div>
+			</div>
+		</footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+		<!-- google maps -->
+        <script type="text/javascript"
+	      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxInaUUa0OpgO7bBFM1iFsAoRaT1NG4CI">
+	    </script>
+	    <script type="text/javascript">
+	      function initialize() {
+	      	var myLatlng = new google.maps.LatLng(51.159037, 71.412882);
+			  var styles = [
+				{
+				  stylers: [
+					{ hue: "#00ff90" },
+					{ saturation: -30 }
+				  ]
+				},{
+				  featureType: "road",
+				  elementType: "geometry",
+				  stylers: [
+					{ lightness: 100 },
+					{ visibility: "simplified" }
+				  ]
+				}
+			  ];
+	      	var styledMap = new google.maps.StyledMapType(styles,
+				{name: "Styled Map"});
+	        var mapOptions = {
+	          center: myLatlng,
+	          zoom: 16,
+	          scrollwheel: false,
+			  mapTypeControlOptions: {
+				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+			  }
+	        };
+	        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			
+			map.mapTypes.set('map_style', styledMap);
+			map.setMapTypeId('map_style');
+			
+	        var contentString = '<div id="content">'+
+		      '<div id="siteNotice">'+
+		      '</div>'+
+		      '<h2 id="firstHeading" class="firstHeading">Radisson</h2>'+
+		      '<div id="bodyContent">'+
+		      '<p>Along the River Ishim, near the bridge connecting the old and new city,' +
+		      ' the Radisson Hotel, Astana occupies an enviable location. ' +
+		      'It’s part of the impressive Arman complex of restaurants, ' +
+		      'boutiques, recreational venues, a business centre, ' +
+		      'and a world-class fitness and spa centre. ' +
+		      'The hotel’s stunning lobby hints at the full-service stay to come, ' +
+		      'from plush suites to refined dining to dynamic event space.' +
+		      'sandstone rock formation in the southern part of the '+
+		      '<p>Site: <a href="astana.radissonsas.com">'+
+		      'astana.radissonsas.com</a> '+
+		      '</p>'+
+		      '</div>'+
+		      '</div>';
+		    var infowindow = new google.maps.InfoWindow({
+			      content: contentString
+			  });
+	        var marker = new google.maps.Marker({
+			      position: myLatlng,
+			      map: map,
+			      title: 'Место проведения мероприятия'
+			  });
+	        google.maps.event.addListener(marker, 'click', function() {
+			    infowindow.open(map,marker);
+			  });
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>
+		
+        <script src="js/main.js"></script>
+		<script src="js/scheme.js"></script>
+		<script src="js/animate.js"></script>
+		<script src="js/speakers.js"></script>
+		<script src="js/brands.js"></script>
+		
+		<script src="js/sss.js"></script>
+		<script>
+			jQuery(function($) {
+			$('.slider').sss();
+			});
+		</script>
+		
+    </body>
+</html>

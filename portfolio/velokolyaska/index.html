@@ -1,0 +1,685 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<!--meta name="viewport" content="width=device-width"-->
+	<meta name="keywords" content="велоколяска, велосипед-коляска, велотрансформер, коляска, велосипед, коляска, cangoobike, taga, подарок купить маме, велоколяска астана, подарок, 8 марта">
+	<meta name="description" content="Велоколяска  —  Велосипед трансформер, который совмещает в себе и велосипед и детскую коляску. Велоколяска позволит Вам не только насладиться поездкой на велосипеде, но и совместит в себе прогулку с ребенком.">
+	<title>Велоколяска - Поддерживайте форму заботясь о малыше!</title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/animation.css">
+	<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<script src="js/scrollTo.js"></script>
+	<script src="js/popOut.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/animateNumber.min.js"></script>
+	<script src="js/forms.js"></script>
+	<script>
+		$(document).ready( function() {
+			var color = 2;
+			var sun = false;
+			var net = false;
+			var rain = false;
+			var car = false;
+					
+			$('#red').click(function() {
+				if (color != 1) {
+					$('#model').each(function(){
+						$(this).addClass("red");
+						$(this).removeClass("blue");
+						$(this).removeClass("yellow");
+						$('#red').addClass("selected");
+						$('#blue').removeClass("selected");
+						$('#yellow').removeClass("selected");
+						color = 1;
+					});
+				}
+			});
+					
+			$('#blue').click(function() {
+				if (color != 2) {
+					$('#model').each(function(){
+						$(this).removeClass("red");
+						$(this).addClass("blue");
+						$(this).removeClass("yellow");
+						$('#red').removeClass("selected");
+						$('#blue').addClass("selected");
+						$('#yellow').removeClass("selected");
+						color = 2;
+					});
+				}
+			});
+					
+			$('#yellow').click(function() {
+				if (color != 3) {
+					$('#model').each(function(){
+						$(this).removeClass("red");
+						$(this).removeClass("blue");
+						$(this).addClass("yellow");
+						$('#red').removeClass("selected");
+						$('#blue').removeClass("selected");
+						$('#yellow').addClass("selected");
+						color = 3;
+					});
+				}
+			});
+
+			$('#sun .pic').click(function() {
+				if (sun == false) {
+					$('#model').each(function(){
+						$(this).addClass("sun");
+					});
+					$(this).addClass("active");
+					sun = true;
+				} else if (net == false) {
+					if (rain == false) {
+						$('#model').each(function(){
+							$(this).removeClass("sun");
+						});
+						$(this).removeClass("active");
+						sun = false;
+					}
+				}
+			});
+			
+			$('#net .pic').click(function() {
+				if (net == false) {
+					$('#model').each(function(){
+						$(this).addClass("net");
+						$(this).addClass("sun");
+					});
+					$(this).addClass("active");
+					$('#sun .pic').each(function(){
+						$(this).addClass("active");
+					});
+					net = true;
+					sun = true;
+				} else {
+					$('#model').each(function(){
+						$(this).removeClass("net");
+					});
+					$(this).removeClass("active");
+					net = false;
+				}
+			});
+			
+			$('#rain .pic').click(function() {
+				if (rain == false) {
+					$('#model').each(function(){
+						$(this).addClass("rain");
+						$(this).addClass("sun");
+					});
+					$(this).addClass("active");
+					$('#sun .pic').each(function(){
+						$(this).addClass("active");
+					});
+					rain = true;
+					sun = true;
+				} else {
+					$('#model').each(function(){
+						$(this).removeClass("rain");
+					});
+					$(this).removeClass("active");
+					rain = false;
+				}
+			});
+			
+			$('#car .pic').click(function() {
+				if (car == false) {
+					$('#model').each(function(){
+						$(this).addClass("car");
+					});
+					$(this).addClass("active");
+					car = true;
+				} else {
+					$('#model').each(function(){
+						$(this).removeClass("car");
+					});
+					$(this).removeClass("active");
+					car = false;
+				}
+			});
+			
+		});
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-52361777-1', 'auto');
+	  ga('require', 'displayfeatures');
+	  ga('send', 'pageview');
+
+	</script>
+	<link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="popup_shadow" id="fade" onclick="popOut();" style="display: none;"></div>
+	<div id="callback" class="popup form_right">
+		<div class="popup_wrapp">
+			<div class="form_h1">Заказать звонок</div>
+			<div class="form_h2">
+				Оставьте свои данные и мы перезвоним вам в течении часа
+			</div>					
+			<form name="form" class="form_1" method="post" action="">
+				<label class="name left required"><input id="sender_name_callback" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+				<label class="email left required"><input id="sender_email_callback" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+				<label class="phone left required"><input id="sender_phone_callback" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+				<input id="get_callback_button" type="button" name="submit" class="btn input_submit button" value="Получить скидку">
+			</form>
+		</div>
+	</div>
+	<div id="popup" class="popup form_right">
+		<div class="popup_wrapp">
+			<div class="form_h1">Оформить заказ</div>
+			<div class="form_h2">
+				Для заказа велоколяски необходимо указать данные
+			</div>					
+			<form name="form" class="form_1" method="post" action="">
+				<label class="name left required"><input id="sender_name_popup" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+				<label class="email left required"><input id="sender_email_popup" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+				<label class="phone left required"><input id="sender_phone_popup" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+				<input id="get_order_button" type="button" name="submit" class="btn input_submit button" value="Заказать">
+			</form>
+		</div>
+	</div>
+	<div id="popup_style" class="popup form_right">
+		<div class="popup_wrapp">
+			<div class="form_h1">Расчет стоимости</div>
+			<div class="form_h2">
+				Оставьте свои данные для получения расчета стоимости
+			</div>					
+			<form name="form" class="form_1" method="post" action="">
+				<label class="name left required"><input id="sender_name_estimation" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+				<label class="email left required"><input id="sender_email_estimation" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+				<label class="phone left required"><input id="sender_phone_estimation" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+				<input id="get_estimation_button" type="button" name="submit" class="btn input_submit button" value="Заказать">
+			</form>
+		</div>
+	</div>
+	<div id="info" class="popup form_right">
+		<div class="popup_wrapp">
+			<div class="form_h1">Спасибо за оставленную заявку</div>
+			<div class="form_h2">
+				Наш специалист свяжется с вами в ближайшее время
+			</div>
+		</div>
+	</div>
+	<nav>
+		<div class="wrapp">
+			<ul>
+				<li onClick="scrollTo('howto');">Как это работает?</li>
+				<li onClick="scrollTo('difference');">Вело + Коляска</li>
+				<li onClick="scrollTo('purchase');">Получить скидку</li>
+			</ul>
+			<div class="top_phone">
+				8 702 834 0111
+			</div>
+		</div>
+		<div class="wrapp">
+			<div class="callback" onclick="document.getElementById('callback').style.display='block';document.getElementById('fade').style.display='block'">
+				ЗАКАЗАТЬ ЗВОНОК
+			</div>
+		</div>
+	</nav>
+	<header>
+		<div class="wrapp">
+			<div class="header_mid">
+				<div class="logo"></div>
+				<!--div class="header_h3">2 в 1</div-->
+				<div class="wrapper">
+					<div class="header_h1">Поддерживайте форму заботясь о малыше</span></div>
+					<span class="mid">
+						<span class="header_h2">Доставка по Казахстану</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="c2">
+		<div class="wrapp">
+			<div class="sale_wrapp">
+				<div class="sale_text">
+					СКИДКА<br>
+					<span>25%</span>
+				</div>
+			</div>
+			<div class="timer_wrapp">
+				<div class="timer_h1">
+					<strike>150 000 тг</strike><br>
+					<span>112 </span><span id="percent">100</span><span> тг</span><br>
+					НОВАЯ ЦЕНА СО СКИДКОЙ
+				</div>
+					<div class="timer_box_h1">До конца акции:</div>
+					<div class="timer_wrapper">
+						<div class="timer">
+							<table>
+								<tr>					
+									<td><div class="day">00</div></td>
+									<td><div class="hour">00</div></td>
+									<td><div class="min">00</div></td>
+									<td><div class="sec secColor">00</div></td>
+								</tr>
+								<tr>					
+									<td><div class="daytext">дней</div></td>
+									<td><div class="daytext">часов</div></td>
+									<td><div class="daytext">минут</div></td>
+									<td><div class="daytext secColor">секунд</div></td>
+								</tr>
+							</table>
+						</div>
+					</div>						
+			</div>
+			<div class="form_wrapp">
+				<div id="form_right" class="form_right">
+					<div class="form_h1">Заявка на скидку</div>
+					<div class="form_h2">
+						Закажите велоколяску прямо сейчас и получите скидку <span>25%</span>!
+					</div>					
+					<form name="form" class="form_1" method="post" action="">
+						<label class="name left required"><input id="sender_name" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+						<label class="email left required"><input id="sender_email" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+						<label class="phone left required"><input id="sender_phone" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+						<input id="get_sale_button" type="button" name="submit" class="btn input_submit button" value="Получить скидку">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="howto" class="c3">
+		<div class="wrapp">
+			<div class="wrapper">
+				<span class="mid">
+					<span class="c3_header_h3">Факты в цифрах</span>
+				</span>
+			</div>
+			<video autoplay loop poster="video/video.png" id="trans_video">
+				<source src="video/video.webm" type="video/webm">
+				<source src="video/video.mp4" type="video/mp4">
+			</video>
+			<table id="c3_table">
+				<tr>
+					<td class="anim1 scroll animated"><div class="c3_icon1">0</div></td>
+					<td class="anim1 scroll animated">секунд на трансформацию
+				</tr>
+				<tr>
+					<td class="anim2 scroll animated"><div class="c3_icon2">0</div></td>
+					<td class="anim2 scroll animated"><span>колеса для устойчивости</td>
+				</tr>
+				<tr>
+					<td class="anim3 scroll animated"><div class="c3_icon3">0</div></td>
+					<td class="anim3 scroll animated">лет службы минимум</td>
+				</tr>
+				<tr>
+					<td class="anim4 scroll animated"><div class="c3_icon4">0</div></td>
+					<td class="anim4 scroll animated"><span>процентов довольных покупателей</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="c7">
+		<div class="c7_header">
+			<div class="wrapp">
+				<div class="wrapper">
+					<span class="mid">
+						<span class="c7_header_h3">Двойная выгода</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div id="difference" class="wrapp">
+			<div class="half">
+				<div class="c7_label">
+					<span>КОЛЯСКА</span><br>
+					Сохраняет маневренность даже в ресторанах, магазинах и дома
+				</div>
+				<div class="c7_stroller"></div>
+				<div class="c7_list">
+					<div class="c7_icon1"></div>
+					<div class="c7_text">Можно использовать даже дома</div>
+				</div>
+				<div class="c7_list">
+					<div class="c7_icon2"></div>
+					<div class="c7_text">Легко закатывать в автобус, а после можно доехать прямо до адреса переключившись на велосипед</div>
+				</div>
+				<div class="c7_list">
+					<div class="c7_icon3"></div>
+					<div class="c7_text">Легко помещается в багажник автомобиля</div>
+				</div>
+			</div>
+						<div class="half">
+				<div class="c7_label">
+					<span>ВЕЛОКОЛЯСКА</span><br>
+					Идеальное сочетание времени для тренировок и заботы о вашем малыше
+				</div>
+				<div class="c7_bike"></div>
+				<div class="c7_list">
+					<div class="c7_icon4"></div>
+					<div class="c7_text">Заменяет умеренные тренировки - главный компонент в фитнесе</div>
+				</div>
+				<div class="c7_list">
+					<div class="c7_icon5"></div>
+					<div class="c7_text">Сжигает лишние калории</div>
+				</div>
+				<div class="c7_list">
+					<div class="c7_icon6"></div>
+					<div class="c7_text">Укрепляет сердечно-сосудистую систему</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="specs">
+		<div class="c7_header">
+			<div class="wrapper">
+				<span class="mid">
+					<span class="c7_header_h3">Спецификации</span>
+				</span>
+			</div>
+		</div>
+		<div class="wrapp">
+			<div id="safety" class="spec">
+				<span>Безопасность</span><br>
+				Ремни безопасности надежно зафиксируют ребенка в кресле
+			</div>
+			<div id="passability" class="spec">
+				<span>Проходимость</span><br>
+				16-ти дюймовые колеса позволят проехать практически везде
+			</div>
+			<div id="convenience" class="spec">
+				<span>Удобство</span><br>
+				Лоток для вещей освободит ваши руки
+			</div>
+			<div id="security" class="spec">
+				<span>Надежность</span><br>
+				Дисковые тормоза гарантировано остановят велоколяску
+			</div>
+			<div id="comfort" class="spec">
+				Материал: сталь<br>
+				Вес: 27.5 кг<br>
+				Вес нагрузки: до 100 кг
+			</div>
+			<div id="height"></div>
+			<div id="width"></div>
+			<div id="length"></div>
+			<div id="icons"></div>
+		</div>
+	</div>
+	<div class="c2">
+		<div class="wrapp">
+			<div class="sale_wrapp">
+				<div class="sale_text">
+					СКИДКА<br>
+					<span>25%</span>
+				</div>
+			</div>
+			<div class="timer_wrapp">
+				<div id="timer2" class="timer_h1">
+					<strike>150 000 тг</strike><br>
+					<span>112 </span><span id="percent2">100</span><span> тг</span><br>
+					НОВАЯ ЦЕНА СО СКИДКОЙ
+				</div>
+					<div class="timer_box_h1">До конца акции:</div>
+					<div class="timer_wrapper">
+						<div class="timer">
+							<table>
+								<tr>					
+									<td><div class="day">00</div></td>
+									<td><div class="hour">00</div></td>
+									<td><div class="min">00</div></td>
+									<td><div class="sec secColor">00</div></td>
+								</tr>
+								<tr>					
+									<td><div class="daytext">дней</div></td>
+									<td><div class="daytext">часов</div></td>
+									<td><div class="daytext">минут</div></td>
+									<td><div class="daytext secColor">секунд</div></td>
+								</tr>
+							</table>
+						</div>
+					</div>						
+			</div>
+			<div class="form_wrapp">
+				<div id="form_right" class="form_right">
+					<div class="form_h1">Заявка на скидку</div>
+					<div class="form_h2">
+						Закажите велоколяску прямо сейчас и получите скидку <span>25%</span>!
+					</div>					
+					<form name="form" class="form_1" method="post" action="">
+						<label class="name left required"><input id="sender_name" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+						<label class="email left required"><input id="sender_email" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+						<label class="phone left required"><input id="sender_phone" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+						<input id="get_sale_button" type="button" name="submit" class="btn input_submit button" value="Получить скидку">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="c8">
+		<div class="c8_header">
+			<div class="wrapp">
+				<div class="wrapper">
+					<span class="mid">
+						<span class="c8_header_h3">Индивидуальность</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="wrapp">
+			<h4>Выберите цвет:</h4>
+			<table class="palette">
+				<tr>
+					<td class="color"><div id="red"></div></td>
+					<td class="color"><div id="blue" class="selected"></div></td>
+					<td class="color"><div id="yellow"></div></td>
+				</tr>
+			</table>
+			<div id="model"></div>
+			<div id="acs_selector">
+				<div id="sun" class="acs">
+					<div class="pic">Козырек от солнца<div class="inCart"></div></div>
+					<div class="acs_text">Предоставляется в комплекте. Легко надевается на спинку.</div>
+				</div>
+				<div id="net" class="acs">
+					<div class="pic">Москитная сетка<div class="inCart"></div></div>
+					<div class="acs_text">Можно заказать дополнительно. Надевается с козырьком от солнца.</div>
+				</div>
+				<div id="rain" class="acs">
+					<div class="pic">Защита от дождя<div class="inCart"></div></div>
+					<div class="acs_text">Можно заказать дополнительно. Надевается с козырьком от солнца.</div>
+				</div>
+				<div id="car" class="acs">
+					<div class="pic">Автокресло<div class="inCart"></div></div>
+					<div class="acs_text">Можно заказать дополнительно. Ставится вместо родного кресла.</div>
+				</div>
+			</div>
+			<div id="sendstyle" class="btn input_submit button" onclick="document.getElementById('popup_style').style.display='block';document.getElementById('fade').style.display='block'">Расчитать стоимость</div>
+		</div>
+	</div>
+	<div class="c4">
+		<div class="wrapp">
+			<div class="wrapper">
+				<span class="mid">
+					<div class="c4_header_h3"><span id="customers">0</span> семей уже приобрели себе велоколяску</div>
+				</span>
+			</div>
+		</div>
+	</div>
+		<div class="c5_h1">Потому что:</div>
+	<div class="c5">
+		<div class="wrapp">
+			<div class="mid">
+				<div class="griditem easy">
+					<strong>Простота</strong><br>
+					Трехколесный дизайн делает велоколяску сверхустойчивой и можно садиться за руль без опыта катания на велосипеде
+				</div>
+				<div class="griditem style">
+					<strong>Индивидуальность</strong><br>
+					Выбор цвета и модульный дизайн сделают вашу велоколяску неповторимой
+				</div>
+				<div class="griditem safe">
+					<strong>Надежность</strong><br>
+					Соответствует и даже превосходит европейские стандарты безопасности для велосипедов и колясок
+				</div>
+				<div class="griditem secure">
+					<strong>Безопасность</strong><br>
+					Благодаря тому, что сиденье малыша расположено прямо перед Вами - он всегда будет на виду
+				</div>
+				<div class="griditem green">
+					<strong>Экологичность</strong><br>
+					Каждая поездка помогает в борьбе против глобального потепления, ведь теперь нет необходимости постоянно использовать автомобиль
+				</div>
+				<div class="griditem">
+					<strong>Больше заботы</strong><br>
+					Проводите больше времени с ребенком
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="c6">
+		<div class="wrapp">
+			<div class="wrapper">
+				<span class="mid">
+					<span class="c6_header_h3">Малышам и мамам нравится!</span>
+				</span>
+			</div>
+			<div class="cloud">
+				<div class="cloud_text">
+					<span>Так здорово!</span><br>
+					Обычные поездки в парке превратятся в увлекательное путешествие
+				</div>
+			</div>
+			<div class="cloud right">
+				<div class="cloud_text">
+					<span>Вот это да!</span><br>
+					Дети будут настолько увлечены поездкой, что забудут про слезы
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="plan">
+		<div class="c7_header">
+			<div class="wrapper">
+				<span class="mid">
+					<span class="c7_header_h3">Доставка и оплата</span>
+				</span>
+			</div>
+		</div>
+		<div class="wrapp">
+			<div class="step1">1</div>
+			<div class="step2">2</div>
+			<div class="step3">3</div>
+			<div class="step4">4</div>
+			<div class="step5">5</div>
+			<div class="step1_text">Заявка</div>
+			<div class="step2_text">Выбор комплектации</div>
+			<div class="step3_text">Предзаказ</div>
+			<div class="step4_text">Доставка</div>
+			<div class="step5_text">Поехали</div>
+		</div>
+	</div>
+	<div class="c9">
+		<div class="c9_header">
+			<div class="wrapp">
+				<div class="wrapper">
+					<span class="mid">
+						<span class="c9_header_h3">Отзывы покупателей</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="c9_panel">
+				<div class="wrapp">
+					<div class="c9_name">Асель, Астана</div>
+				</div>
+			</div>
+			<div class="c9_body">
+				<div class="wrapp">
+					<div class="c9_photo2"></div>
+					<div class="c9_comment">
+						Сегодня нам привезли нашу велоколяску!) Если честно, даже не ожидала, что она принесет нам столько позитивных эмоций) Доставка была утром и мы уже успели на ней покататься. Из плюсов - удобная, устойчивая и ребенку сидеть комфортно и безопасно, хороший не напряжный фитнес для мамы ( мне понравилось гораздо больше, чем пешая прогулка с коляской) Из минусов - большой радиус разворота, но к этому быстро привыкаешь. Корзинка не очень большая. Ребенку так ездить понравилось, катались часа 2,5 не меньше. В парке чувствовали себя полноправными участниками движения среди велосипедистов))) Многие видели такой транспорт впервые и активно интересовались)) До покупки я еще сомневалась, сейчас же думаю, что не зря заплатила деньги)) очень рекомендую)
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="c9_panel">
+				<div class="wrapp">
+					<div class="c9_name">Роза, Астана</div>
+				</div>
+			</div>
+			<div class="c9_body">
+				<div class="wrapp">
+					<div class="c9_photo3"></div>
+					<div class="c9_comment">
+						Девочки, ура, совершилось. Родила я 22 мая. До этого числа заказала вело коляску (велик для меня) с автокреслом вместо сидячего места и вот сегодня мне привезли ее домой собрали, теперь я довольная. Завтра пойду пробовать.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="c9_panel">
+				<div class="wrapp">
+					<div class="c9_name">Мадина, Алматы</div>
+				</div>
+			</div>
+			<div class="c9_body">
+				<div class="wrapp">
+					<div class="c9_photo1"></div>
+					<div class="c9_comment">
+						Спасибо огромное за быструю доставку велоколяски. Очень удобное средство передвижения. Вчера опробовали наконец то, очень понравилось. Пешком бы пока дошла до парка, то уже бы устала. Все в парке меня останавливали, фотографировали, спрашивали где приобретала, вообщем всем все рассказала, думаю в скором времени каждый второй будет на такой вело коляске. А что удобно сел и поехал. Спасибо.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="purchase" class="c10">
+		
+	</div>
+	<div class="c11">
+		<div class="wrapp">
+				<div class="wrapper">
+					<span class="mid">
+						<div class="form_mid">
+							<div class="form_h2 second_form_h2">
+								Закажите велоколяску прямо сейчас<br>
+								и получите скидку 25%!
+							</div>		
+							<form name="form_2" class="form_2" method="post" action="">
+								<label class="name left required"><input id="sender_name_2" type="text" name="name" class="sender_name" placeholder="ваше имя"></label>
+								<label class="email left required"><input id="sender_email_2" type="text" name="email" class="sender_email" placeholder="ваш e-mail"></label>
+								<label class="phone left required"><input id="sender_phone_2" type="text" name="phone" class="sender_phone" placeholder="ваш телефон"></label>
+								<input id="get_sale_button_2" type="button" name="submit" class="btn input_submit button" value="Получить скидку">
+							</form>
+						</div>
+					</span>
+				</div>
+			</div>
+	</div>
+	<div class="footer">
+		<div class="wrapp">
+			<div class="footer_right">
+				<div class="footer_logo_text">Разработка сайта:</div>
+				<a href="http://www.handsguru.kz"><div class="footer_logo"></div></a>
+			</div>
+			<div class="footer_left_wrapp">
+				<div class="footer_left">
+					<div class="footer_phone">8 702 834 0111</div>
+					<div class="footer_btn" onClick="document.getElementById('callback').style.display='block';document.getElementById('fade').style.display='block'">заказать звонок</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/jquery.lazylinepainter-1.4.1.min.js"></script>
+	<script src="js/raphael-min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html><html><head></head><body></body></html>

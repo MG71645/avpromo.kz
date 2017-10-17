@@ -1,0 +1,177 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>AV promo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,800,400&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script>
+            function popup(id) {
+                $('fade').removeClass('hidden');
+                $(id).removeClass('hidden');
+            }
+        </script>
+        <script>
+            function AjaxFormRequest(result_id,formMain,url) {
+                $('#send_phone').prop('disabled', true);
+                $('#send_phone').html('Отправка');
+                jQuery.ajax({
+                    url:     url,
+                    type:     "POST",
+                    dataType: "html",
+                    data: jQuery("#"+formMain).serialize(),
+                    success: function(response) {
+                        //document.getElementById(result_id).innerHTML = response;
+                        setTimeout( function() {
+                            $('#get_result').removeClass('hidden');
+                        }, 1000 );
+                    },
+                    error: function(response) {
+                        //document.getElementById(result_id).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <header>
+            <wrapper>
+                <navigation class="primary">
+                    <a href="index.html">Главная</a>
+                    <a href="offers.html" class="active">Портфолио</a>
+                </navigation>
+                <logo></logo>
+                <navigation class="secondary">
+                    <a href="company/index.html">О нас</a>
+                    <a href="contacts/index.html">Контакты</a>
+                </navigation>
+            </wrapper>
+        </header>
+
+        <main>
+            <wrapper>
+                <article class="column6 block">
+                    <a href="lp.html">
+                        <h3>
+                            <span>Разработка</span><br>
+                            Продающей Страницы
+                        </h3>
+                        <img src="img/lp.png">
+                        <p>Идеальный инструмент для продажи товаров и услуг. Гарантирует конверсию от 8% уже в первые дни работы.</p>
+                    </a>
+                </article>
+                <article class="column6 block">
+                    <a href="card.html">
+                        <h3>
+                            <span>Изготовление</span><br>
+                            Пластиковых Карт
+                        </h3>
+                        <img src="img/cards.png">
+                        <p>Визитные карточки, дисконтные карты, рекламные карты, страховые карты, клубные карты</p>
+                    </a>
+                </article>
+            </wrapper>
+        </main>
+        
+        <footer>
+            <line>
+                <wrapper>
+                    <div class="column6">
+                        <ul>
+                            <li>
+                                <a href="">Главная</a>
+                            </li>
+                            <li>
+                                <a href="">Услуги</a>
+                            </li>
+                            <li>
+                                <a href="">О нас</a>
+                            </li>
+                            <li>
+                                <a href="">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column3">
+                        <icon class="icon-map-marker"></icon>
+                        <span>
+                            г. Астана, ул. Сейфуллина, <br>д. 39
+                        </span>
+                    </div>
+                    <div class="column3">
+                        <icon class="icon-phone"></icon>
+                        <span>
+                            <strong>+7 (701) 834 0111</strong><br>
+                            <a class="cta" onclick="popup(popup_phone)">Заказать обратный звонок</a>
+                        </span>
+                    </div>
+                </wrapper>
+            </line>
+            <line>
+                <wrapper>
+                    <small>© 2013 - 2015 Astana Ventures</small>
+                </wrapper>
+            </line>
+        </footer>
+        
+        <fade class="hidden"></fade>
+        <popup id="popup_phone" class="hidden">
+            <header>
+                Введите данные
+                <icon class="icon-close"></icon>
+            </header>
+            <form method="post" id="get_phone" action="post.php">
+                <label>Имя:</label><br>
+                <input name="name" type="text" placeholder="Азамат"><br>
+                <label>Телефон:</label><br>
+                <input name="phone" type="text" placeholder="+7 777 123 4567">
+            </form>
+            <footer>
+                <button id="send_phone" class="cta" onclick="AjaxFormRequest('get_result', 'get_phone', 'post.php')">Заказать</button>
+            </footer>
+            <popup id="get_result" class="hidden">
+                <header>
+                    Спасибо!
+                    <icon class="icon-close"></icon>
+                </header>
+                <form>
+                    Наш оператор свяжется с вами в течение 30 минут
+                </form>
+                <footer>
+                    <button class="cta">Закрыть</button>
+                </footer>
+            </popup>
+        </popup>
+
+        <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-46778520-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

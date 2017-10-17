@@ -1,0 +1,257 @@
+.display {
+	display: block !important;
+}
+
+#brands-navigation button {
+	margin-bottom: 4px;
+	padding: 0 16px;
+	
+	font-size: 18px;
+}
+
+#brands .block {
+	display: none;
+	cursor: pointer;
+	float: left;
+	
+	-webkit-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	opacity: 0.30;
+}
+
+#brands .block:hover {
+	-webkit-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	opacity: 1;
+}
+
+.brand {
+	height: 150px;
+}
+
+#food1 {
+	height: 100%;
+	background: url('../img/brands/food/br.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#food2 {
+	height: 100%;
+	background: url('../img/brands/food/burger-king.png') center center no-repeat;
+	background-size: 80%;
+}
+
+#food3 {
+	height: 100%;
+	background: url('../img/brands/food/coca-cola.png') center center no-repeat;
+	background-size: 80%;
+}
+
+#food4 {
+	height: 100%;
+	background: url('../img/brands/food/gloria.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#food5 {
+	height: 100%;
+	background: url('../img/brands/food/hardees.png') center center no-repeat;
+	background-size: 80%;
+}
+
+#food6 {
+	height: 100%;
+	background: url('../img/brands/food/kfc.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#food7 {
+	height: 100%;
+	background: url('../img/brands/food/movenpick.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+
+
+
+#electronics1 {
+	height: 100%;
+	background: url('../img/brands/electronics/apple.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#electronics2 {
+	height: 100%;
+	background: url('../img/brands/electronics/lg.png') center center no-repeat;
+	background-size: 80%;
+}
+
+#electronics3 {
+	height: 100%;
+	background: url('../img/brands/electronics/samsung.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#electronics4 {
+	height: 100%;
+	background: url('../img/brands/electronics/sony.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+
+
+
+#jewelery1 {
+	height: 100%;
+	background: url('../img/brands/jewelery/freywille.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery2 {
+	height: 100%;
+	background: url('../img/brands/jewelery/graziella.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery3 {
+	height: 100%;
+	background: url('../img/brands/jewelery/omega.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery4 {
+	height: 100%;
+	background: url('../img/brands/jewelery/royal.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery5 {
+	height: 100%;
+	background: url('../img/brands/jewelery/swarovski.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery6 {
+	height: 100%;
+	background: url('../img/brands/jewelery/swatch.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#jewelery7 {
+	height: 100%;
+	background: url('../img/brands/jewelery/swisstime.png') center center no-repeat;
+	background-size: 80%;
+}
+
+
+
+
+#sportwear1 {
+	height: 100%;
+	background: url('../img/brands/sportwear/adidas.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#sportwear2 {
+	height: 100%;
+	background: url('../img/brands/sportwear/nike.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#sportwear3 {
+	height: 100%;
+	background: url('../img/brands/sportwear/reebok.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#sportwear4 {
+	height: 100%;
+	background: url('../img/brands/sportwear/sport-master.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+
+
+
+#shoes1 {
+	height: 100%;
+	background: url('../img/brands/shoes/aldo.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes2 {
+	height: 100%;
+	background: url('../img/brands/shoes/baldi.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes3 {
+	height: 100%;
+	background: url('../img/brands/shoes/basconi.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes4 {
+	height: 100%;
+	background: url('../img/brands/shoes/ecco.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes5 {
+	height: 100%;
+	background: url('../img/brands/shoes/la-vogue.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes6{
+	height: 100%;
+	background: url('../img/brands/shoes/nine-west.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes7 {
+	height: 100%;
+	background: url('../img/brands/shoes/paolo-conte.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#shoes8 {
+	height: 100%;
+	background: url('../img/brands/shoes/pazolini.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+
+
+
+#hotels1 {
+	height: 100%;
+	background: url('../img/brands/hotels/hilton.png') center center no-repeat;
+	background-size: 80%;
+}
+
+#hotels2 {
+	height: 100%;
+	background: url('../img/brands/hotels/marriott.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#hotels3 {
+	height: 100%;
+	background: url('../img/brands/hotels/park-inn.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#hotels4 {
+	height: 100%;
+	background: url('../img/brands/hotels/radisson.jpg') center center no-repeat;
+	background-size: 80%;
+}
+
+#hotels5 {
+	height: 100%;
+	background: url('../img/brands/hotels/rixos.jpg') center center no-repeat;
+	background-size: 80%;
+}

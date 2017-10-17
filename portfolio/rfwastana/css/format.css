@@ -1,0 +1,49 @@
+.registration .colored {
+	fill: #6f2fb8;
+	color: #6f2fb8;
+}
+
+.opening .colored {
+	fill: #4cb82f;
+	color: #4cb82f;
+}
+
+.exhibition .colored {
+	fill: #b82f9a;
+	color: #b82f9a;
+}
+
+.speaking .colored {
+	fill: #2f7ab8;
+	color: #2f7ab8;
+}
+
+.meal .colored {
+	fill: #2fb8a4;
+	color: #2fb8a4;
+}
+
+.appointment .colored {
+	fill: #6f2fb8;
+	color: #6f2fb8;
+}
+
+.excursion .colored {
+	fill: #2f7ab8;
+	color: #2f7ab8;
+}
+
+.hotel .colored {
+	fill: #4cb82f;
+	color: #4cb82f;
+}
+
+.road .colored {
+	fill: #f5a816;
+	color: #f5a816;
+}
+
+.plane .colored {
+	fill: #b82f9a;
+	color: #b82f9a;
+}
